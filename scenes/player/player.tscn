@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/alan-turing.png" id="2_fhbv5"]
+[ext_resource type="Script" uid="uid://bp7ynevskppff" path="res://scripts/weapon.gd" id="3_pqap4"]
+[ext_resource type="PackedScene" uid="uid://rjkkfg2fmscd" path="res://scenes/weapons/projectile.tscn" id="4_2c7ny"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
 radius = 7.0
@@ -20,3 +22,7 @@ texture = ExtResource("2_fhbv5")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966813502]
 position = Vector2(-1, -5)
 zoom = Vector2(3, 3)
+
+[node name="Weapon" type="Node2D" parent="." unique_id=1936755187]
+script = ExtResource("3_pqap4")
+projectile_scene = ExtResource("4_2c7ny")

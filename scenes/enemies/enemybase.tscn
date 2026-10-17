@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://1640r0stkje4"]
+
+[ext_resource type="Script" uid="uid://ba6ld4pwhqds1" path="res://scripts/enemybase.gd" id="1_0mhav"]
+[ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genéricos/Samsung.png" id="2_73n04"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
+radius = 3.0
+height = 12.0
+
+[node name="SmartBotao" type="CharacterBody2D" unique_id=410658759]
+script = ExtResource("1_0mhav")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=555424325]
+position = Vector2(-4.7683716e-07, -2.2351742e-08)
+scale = Vector2(0.053710926, 0.06347656)
+texture = ExtResource("2_73n04")
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1228511987]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2107185566]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_tmq5d")

@@ -1,14 +1,42 @@
 extends CharacterBody2D
 
+signal health_changed(hp: float, max_hp: float)
+signal died
+
 @export var speed: float = 200.0
+@export var max_hp: float = 100.0
+
+var hp: float
+var invulnerable: bool = false
+
+func _ready() -> void:
+	add_to_group("player")
+	hp = max_hp
 
 func _physics_process(_delta: float) -> void:
-	# Lê as setas do teclado (Funciona direto sem precisar configurar nada!)
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	
 	velocity = direction * speed
 	move_and_slide()
 	
-	# Vira o sprite para a esquerda ou direita dependendo de para onde está andando
 	if direction.x != 0 and has_node("Sprite2D"):
 		$Sprite2D.flip_h = direction.x < 0
+
+func take_damage(amount: float) -> void:
+	if invulnerable:
+		return
+	hp -= amount
+	print("HP do player: ", hp)
+	health_changed.emit(hp, max_hp)
+	
+	# i-frames: meio segundo sem tomar dano, com feedback vermelho
+	invulnerable = true
+	if has_node("Sprite2D"):
+		$Sprite2D.modulate = Color(1, 0.4, 0.4)
+	await get_tree().create_timer(0.5).timeout
+	invulnerable = false
+	if has_node("Sprite2D"):
+		$Sprite2D.modulate = Color.WHITE
+	
+	if hp <= 0:
+		died.emit()
+		get_tree().reload_current_scene()
