@@ -29,3 +29,5 @@ func _fire(dir: Vector2) -> void:
 	get_tree().current_scene.add_child(p)   # na arena, para não andar junto com o player
 	p.global_position = global_position
 	p.setup(dir, damage, projectile_speed, pierce)
+
+@export var starting_weapon: PackedScene

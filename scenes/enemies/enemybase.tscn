@@ -7,6 +7,10 @@
 radius = 3.0
 height = 12.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3vd68"]
+radius = 3.0
+height = 12.0
+
 [node name="SmartBotao" type="CharacterBody2D" unique_id=410658759]
 script = ExtResource("1_0mhav")
 
@@ -20,3 +24,7 @@ texture = ExtResource("2_73n04")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2107185566]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_tmq5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288305320]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_3vd68")
