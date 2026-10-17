@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://2v4ui2yhqiwv"]
+
+[ext_resource type="PackedScene" uid="uid://bsqp07cqq1mr8" path="res://scenes/world/world_generator.tscn" id="1_ktrib"]
+[ext_resource type="PackedScene" uid="uid://dmcme03bjx7n6" path="res://scripts/player.tscn" id="2_igey7"]
+
+[node name="MainArena" type="Node2D" unique_id=2030471012]
+
+[node name="WorldGenerator" parent="." unique_id=764464101 node_paths=PackedStringArray("player") instance=ExtResource("1_ktrib")]
+player = NodePath("../Player")
+
+[node name="Player" parent="." unique_id=1957060281 instance=ExtResource("2_igey7")]

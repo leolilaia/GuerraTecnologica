@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmcme03bjx7n6"]
+
+[ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player.gd" id="1_qm0ti"]
+[ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/alan-turing.png" id="2_fhbv5"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
+radius = 7.0
+height = 22.0
+
+[node name="Player" type="CharacterBody2D" unique_id=406858962]
+script = ExtResource("1_qm0ti")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927685501]
+position = Vector2(-3, 3)
+shape = SubResource("CapsuleShape2D_tmq5d")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=541790927]
+texture = ExtResource("2_fhbv5")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=966813502]
+position = Vector2(-1, -5)
+zoom = Vector2(3, 3)
