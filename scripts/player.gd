@@ -9,9 +9,13 @@ signal died
 var hp: float
 var invulnerable: bool = false
 
+@export var starting_weapon: PackedScene
+
 func _ready() -> void:
 	add_to_group("player")
 	hp = max_hp
+	if starting_weapon:
+		add_child(starting_weapon.instantiate())
 
 func _physics_process(_delta: float) -> void:
 	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")

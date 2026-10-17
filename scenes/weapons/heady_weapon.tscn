@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://ch6guehjk5w22"]
+
+[ext_resource type="Script" uid="uid://c5mp7q210powq" path="res://scripts/heady_weapon.gd" id="1_hm2p8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmq5d"]
+radius = 46.043457
+
+[node name="HeadyWeapon" type="Area2D" unique_id=1308651868]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("1_hm2p8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1531798523]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=219137500]
+shape = SubResource("CircleShape2D_tmq5d")
