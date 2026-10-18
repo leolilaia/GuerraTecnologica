@@ -34,6 +34,10 @@ func level_up() -> void:
 func is_max_level() -> bool:
 	return level >= max_level
 
+## Texto do card de upgrade; armas com efeito próprio sobrescrevem
+func describe_next_level() -> String:
+	return "Nível %d → %d" % [level, level + 1]
+
 func _can_attack() -> bool:
 	return true
 
@@ -42,6 +46,16 @@ func _attack() -> void:
 
 func _on_level_up() -> void:
 	pass
+
+func _enemies_within(center: Vector2, radius: float) -> Array[Node2D]:
+	var result: Array[Node2D] = []
+	for enemy: Node2D in get_tree().get_nodes_in_group("enemies"):
+		if enemy.global_position.distance_squared_to(center) <= radius * radius:
+			result.append(enemy)
+	return result
+
+func _aim_angle() -> float:
+	return (get_global_mouse_position() - global_position).angle()
 
 # Tiros ficam na arena, e não na arma, para não acompanharem o movimento do player
 func _spawn_in_world(scene: PackedScene) -> Node:

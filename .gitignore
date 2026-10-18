@@ -8,3 +8,5 @@ export_presets.cfg
 .mono/
 data_*/
 .vscode/
+# Temporários do editor
+*.tmp
