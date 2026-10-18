@@ -29,6 +29,7 @@ attack_interval_phase2 = 1.7
 speed = 60.0
 hp = 1500.0
 damage = 15.0
+xp_value = 50.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=555424325]
 position = Vector2(70, 69)

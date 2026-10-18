@@ -39,10 +39,14 @@ func _ready() -> void:
 	if player == null:
 		return
 	player.health_changed.connect(_on_health_changed)
+	player.experience_changed.connect(set_experience)
+	player.leveled_up.connect(set_level)
 	player.weapon_added.connect(_add_weapon_slot)
 	for weapon in player.get_weapons():
 		_add_weapon_slot(weapon)
 	_set_health(player.hp, player.max_hp)
+	set_experience(player.xp, player.xp_to_next)
+	set_level(player.level)
 	_damage_bar.value = _health_bar.value
 
 func _process(delta: float) -> void:

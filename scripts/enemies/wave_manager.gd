@@ -96,6 +96,8 @@ func _spawn(enemy_name: String, player: Node2D, hp_mult: float = 1.0) -> Node2D:
 	var enemy := scene.instantiate() as Node2D
 	if "hp" in enemy:
 		enemy.hp *= hp_mult
+	if "xp_value" in enemy:
+		enemy.xp_value *= hp_mult
 	enemy.died.connect(enemy_killed.emit)
 	get_parent().add_child(enemy)
 	enemy.global_position = player.global_position + Vector2.from_angle(randf() * TAU) * spawn_radius

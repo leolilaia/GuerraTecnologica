@@ -7,6 +7,9 @@
 radius = 7.0
 height = 22.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
+radius = 40.0
+
 [node name="Player" type="CharacterBody2D" unique_id=406858962]
 script = ExtResource("1_qm0ti")
 
@@ -18,6 +21,14 @@ shape = SubResource("CapsuleShape2D_tmq5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=541790927]
 texture = ExtResource("2_fhbv5")
+
+[node name="PickupZone" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone"]
+shape = SubResource("CircleShape2D_pickup")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966813502]
 position = Vector2(-1, -5)

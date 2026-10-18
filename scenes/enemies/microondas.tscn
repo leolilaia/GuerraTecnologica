@@ -13,6 +13,7 @@ size = Vector2(26.5, 12.53125)
 speed = 70.0
 hp = 45.0
 damage = 15.0
+xp_value = 3.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=555424325]
 position = Vector2(2.5712895, 3.874023)

@@ -3,9 +3,12 @@ extends CharacterBody2D
 
 signal died
 
+const XP_ORB_SCENE := preload("res://scenes/pickups/xp_orb.tscn")
+
 @export var speed: float = 80.0
 @export var hp: float = 20.0
 @export var damage: float = 5.0
+@export var xp_value: float = 1.0
 
 var player: Node2D
 var wobble_time: float = 0.0
@@ -46,8 +49,16 @@ func take_damage(amount: float) -> void:
 	create_tween().tween_property($Sprite2D, "modulate", Color.WHITE, 0.1)
 
 	if hp <= 0:
+		_drop_xp_orb()
 		died.emit()
 		queue_free()
+
+func _drop_xp_orb() -> void:
+	var orb := XP_ORB_SCENE.instantiate() as XpOrb
+	orb.value = xp_value
+	orb.position = global_position
+	# A morte chega no meio da checagem de colisão, quando não dá para criar áreas
+	get_parent().add_child.call_deferred(orb)
 
 # Parado também não causa dano de contato
 func stun(duration: float) -> void:
