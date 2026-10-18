@@ -1,83 +1,81 @@
-extends "res://scripts/enemies/enemy_base.gd"
+extends "res://scripts/enemies/boss_base.gd"
 
-enum State { CHASE, TELEGRAPH, DASH, SHOOT }
+# Quais ataques este boss usa (0 a 5). Dá para mudar no Inspetor de cada boss.
+@export var attack_pool: Array[int] = [0, 1, 2, 3, 4, 5]
+var last_attack: int = -1
 
-@export var projectile_scene: PackedScene   # arraste enemy_projectile.tscn
-@export var chase_time: float = 2.5
-@export var telegraph_time: float = 0.6
-@export var dash_time: float = 0.4
-@export var dash_speed: float = 600.0
-@export var shoot_pause: float = 0.8
-@export var shots_per_burst: int = 5
-@export var spread_degrees: float = 50.0
-@export var projectile_damage: float = 8.0
+func _attack(_index: int) -> void:
+	var pick: int = attack_pool.pick_random()
+	if attack_pool.size() > 1 and pick == last_attack:
+		pick = attack_pool[(attack_pool.find(pick) + 1) % attack_pool.size()]
+	last_attack = pick
+	match pick:
+		0: _volley()
+		1: _fan()
+		2: _rain()
+		3: _spiral()
+		4: _fountain()
+		5: _bounce()
 
-var state: State = State.CHASE
-var state_timer: float = 0.0
-var dash_dir: Vector2 = Vector2.ZERO
+func _aim() -> Vector2:
+	if is_instance_valid(player):
+		return global_position.direction_to(player.global_position)
+	return Vector2.DOWN
 
-func _physics_process(delta: float) -> void:
-	if not is_instance_valid(player):
-		return
-	state_timer += delta
-	var to_player := global_position.direction_to(player.global_position)
+# 0. Rajada: arremessos mirados no jogador, um atrás do outro
+func _volley() -> void:
+	var count := 6 if in_phase2() else 4
+	var tw := create_tween()
+	for i in count:
+		tw.tween_callback(func(): shoot(global_position, _aim(), {"speed": 380.0, "spin": 8.0}))
+		tw.tween_interval(0.25)
 
-	match state:
-		State.CHASE:
-			velocity = to_player * speed
-			_face(to_player)
-			if state_timer >= chase_time:
-				_change_state(State.TELEGRAPH)
-		State.TELEGRAPH:
-			velocity = Vector2.ZERO
-			if has_node("Sprite2D"):
-				$Sprite2D.position.x = randf_range(-4.0, 4.0)   # treme avisando o golpe
-			if state_timer >= telegraph_time:
-				_change_state(State.DASH)
-		State.DASH:
-			velocity = dash_dir * dash_speed
-			if state_timer >= dash_time:
-				_change_state(State.SHOOT)
-		State.SHOOT:
-			velocity = Vector2.ZERO
-			if state_timer >= shoot_pause:
-				_change_state(State.CHASE)
+# 1. Leque: vários aparelhos de uma vez, abrindo na direção do jogador
+func _fan() -> void:
+	var base_angle := _aim().angle()
+	var count := 9 if in_phase2() else 7
+	var spread := deg_to_rad(70.0)
+	for i in count:
+		var t := float(i) / (count - 1)
+		var a := base_angle + lerpf(-spread / 2.0, spread / 2.0, t)
+		shoot(global_position, Vector2.from_angle(a), {"speed": 320.0, "spin": 6.0})
 
-	move_and_slide()
+# 2. Chuva: caem do topo da tela em alturas e velocidades diferentes
+func _rain() -> void:
+	var count := 12 if in_phase2() else 9
+	var step := half_size.x * 2.0 / count
+	for i in count:
+		var x := center.x - half_size.x + step * (i + 0.5) + randf_range(-step * 0.3, step * 0.3)
+		var y := center.y - half_size.y - randf_range(0.0, 220.0)
+		shoot(Vector2(x, y), Vector2.DOWN, {
+			"speed": randf_range(220.0, 330.0), "spin": randf_range(-6.0, 6.0),
+			"big": randf() < 0.25})
 
-	# Dano de contato (a versão base foi substituída, então repetimos aqui)
-	if has_node("Hitbox"):
-		for body in $Hitbox.get_overlapping_bodies():
-			if body.has_method("take_damage"):
-				body.take_damage(damage)
+# 3. Espiral: o boss gira atirando em sequência
+func _spiral() -> void:
+	var steps := 30 if in_phase2() else 22
+	var delay := 0.06 if in_phase2() else 0.08
+	var start_angle := randf() * TAU
+	var tw := create_tween()
+	for i in steps:
+		tw.tween_callback(func(): shoot(global_position, Vector2.from_angle(start_angle + i * 0.45), {"speed": 280.0, "spin": 5.0}))
+		tw.tween_interval(delay)
 
-func _change_state(new_state: State) -> void:
-	state = new_state
-	state_timer = 0.0
-	if has_node("Sprite2D"):
-		$Sprite2D.position.x = 0.0
-	match state:
-		State.DASH:
-			dash_dir = global_position.direction_to(player.global_position)
-			_face(dash_dir)
-		State.SHOOT:
-			_fire_burst()
+# 4. Chafariz: lança para cima e os aparelhos caem em arco
+func _fountain() -> void:
+	var count := 14 if in_phase2() else 10
+	for i in count:
+		var a := deg_to_rad(randf_range(-160.0, -20.0))
+		shoot(global_position, Vector2.from_angle(a), {
+			"speed": randf_range(280.0, 460.0), "gravity": 520.0,
+			"spin": randf_range(-7.0, 7.0), "lifetime": 5.0,
+			"big": i % 4 == 0})
 
-func _face(dir: Vector2) -> void:
-	if has_node("Sprite2D"):
-		$Sprite2D.flip_h = dir.x < 0.0
-
-func _fire_burst() -> void:
-	if projectile_scene == null or not is_instance_valid(player):
-		return
-	var base_angle := global_position.direction_to(player.global_position).angle()
-	var spread := deg_to_rad(spread_degrees)
-	for i in shots_per_burst:
-		var t := 0.5 if shots_per_burst == 1 else float(i) / (shots_per_burst - 1)
-		var angle := base_angle + lerpf(-spread / 2.0, spread / 2.0, t)
-		var p := projectile_scene.instantiate()
-		get_tree().current_scene.add_child(p)
-		p.global_position = global_position
-		p.setup(Vector2.from_angle(angle), projectile_damage)
-		
-		
+# 5. Ricochete: aparelhos grandes que quicam nas bordas da tela
+func _bounce() -> void:
+	var count := 3 if in_phase2() else 2
+	for i in count:
+		var a := _aim().angle() + deg_to_rad(randf_range(-35.0, 35.0))
+		shoot(global_position, Vector2.from_angle(a), {
+			"speed": 260.0, "big": true, "spin": 3.0, "bounces": 4, "lifetime": 9.0,
+			"bounds_center": center, "bounds_half": half_size})
