@@ -154,7 +154,7 @@ func _on_boss_defeated() -> void:
 		game_won.emit()
 		return
 	_show_banner("FASE %d CONCLUÍDA!" % level, 2.0)
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.5, false).timeout
 	_begin_level(level + 1)
 
 func _heal_player() -> void:

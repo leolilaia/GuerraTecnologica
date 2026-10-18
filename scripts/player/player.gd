@@ -21,6 +21,13 @@ var level: int = 1
 var xp: float = 0.0
 var xp_to_next: float
 
+# O raio mora no shape da PickupZone; o upgrade de ímã mexe direto nele
+var pickup_radius: float:
+	get:
+		return ($PickupZone/CollisionShape2D.shape as CircleShape2D).radius
+	set(value):
+		($PickupZone/CollisionShape2D.shape as CircleShape2D).radius = value
+
 func _ready() -> void:
 	add_to_group("player")
 	hp = max_hp
@@ -72,6 +79,11 @@ func add_experience(amount: float) -> void:
 func _xp_for_level(n: int) -> float:
 	return roundf(xp_base * pow(xp_growth, n - 1))
 
+func increase_max_hp(amount: float) -> void:
+	max_hp += amount
+	hp += amount
+	health_changed.emit(hp, max_hp)
+
 func take_damage(amount: float) -> void:
 	if invulnerable:
 		return
@@ -85,6 +97,6 @@ func take_damage(amount: float) -> void:
 
 	invulnerable = true
 	$Sprite2D.modulate = Color(1, 0.4, 0.4)
-	await get_tree().create_timer(0.5).timeout
+	await get_tree().create_timer(0.5, false).timeout
 	invulnerable = false
 	$Sprite2D.modulate = Color.WHITE

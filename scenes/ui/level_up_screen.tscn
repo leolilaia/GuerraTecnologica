@@ -1,0 +1,45 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/level_up_screen.gd" id="1_screen"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/characters/ada_weapon.tscn" id="2_ada"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/characters/hedy_weapon.tscn" id="3_hedy"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/characters/turing_weapon.tscn" id="4_turing"]
+
+[node name="LevelUpScreen" type="CanvasLayer"]
+process_mode = 3
+layer = 30
+script = ExtResource("1_screen")
+weapon_scenes = Array[PackedScene]([ExtResource("2_ada"), ExtResource("3_hedy"), ExtResource("4_turing")])
+
+[node name="Dim" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.6)
+
+[node name="Layout" type="VBoxContainer" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+alignment = 1
+
+[node name="Title" type="Label" parent="Layout"]
+unique_name_in_owner = true
+theme_override_colors/font_color = Color(1, 0.84, 0.45, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 48
+text = "NÍVEL 2"
+horizontal_alignment = 1
+
+[node name="Options" type="HBoxContainer" parent="Layout"]
+unique_name_in_owner = true
+theme_override_constants/separation = 24
+alignment = 1

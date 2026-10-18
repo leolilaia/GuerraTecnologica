@@ -8,6 +8,7 @@ radius = 7.0
 height = 22.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pickup"]
+resource_local_to_scene = true
 radius = 40.0
 
 [node name="Player" type="CharacterBody2D" unique_id=406858962]
