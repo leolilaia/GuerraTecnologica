@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://i0y0h1qad4h7"
-path="res://.godot/imported/AtaqueAdaLovelace.png-ec9f1ff7f8a2e13e516be1b9ee56c683.ctex"
+path="res://.godot/imported/Feixes.png-ea241898d2b7223b336323ada27cb0e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ataques/AtaqueAdaLovelace.png"
-dest_files=["res://.godot/imported/AtaqueAdaLovelace.png-ec9f1ff7f8a2e13e516be1b9ee56c683.ctex"]
+source_file="res://assets/sprites/Weapons/Feixes.png"
+dest_files=["res://.godot/imported/Feixes.png-ea241898d2b7223b336323ada27cb0e9.ctex"]
 
 [params]
 

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ch6guehjk5w22"]
+
+[ext_resource type="Script" uid="uid://c5mp7q210powq" path="res://scripts/weapons/characters/hedy_weapon.gd" id="1_hm2p8"]
+[ext_resource type="Texture2D" uid="uid://chdl5w47hiqib" path="res://assets/sprites/Weapons/Wifi.png" id="9_icon"]
+
+[node name="HedyWeapon" type="Node2D" unique_id=1308651868]
+script = ExtResource("1_hm2p8")
+display_name = "Wi-Fi"
+icon = ExtResource("9_icon")
+damage = 5.0
+cooldown = 0.5
+damage_per_level = 1.0
+

@@ -1,11 +1,13 @@
+class_name Player
 extends CharacterBody2D
 
 signal health_changed(hp: float, max_hp: float)
 signal died
+signal weapon_added(weapon: Weapon)
 
 @export var speed: float = 200.0
 @export var max_hp: float = 100.0
-@export var starting_weapon: PackedScene
+@export var character: CharacterData
 
 var hp: float
 var invulnerable: bool = false
@@ -13,16 +15,33 @@ var invulnerable: bool = false
 func _ready() -> void:
 	add_to_group("player")
 	hp = max_hp
-	if starting_weapon:
-		add_child(starting_weapon.instantiate())
+	if character:
+		_apply_character(character)
 
 func _physics_process(_delta: float) -> void:
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
 
 	if direction.x != 0:
 		$Sprite2D.flip_h = direction.x < 0
+
+func _apply_character(data: CharacterData) -> void:
+	if data.sprite:
+		$Sprite2D.texture = data.sprite
+	if data.starting_weapon:
+		add_weapon(data.starting_weapon)
+
+func add_weapon(scene: PackedScene) -> Weapon:
+	var weapon := scene.instantiate() as Weapon
+	$Weapons.add_child(weapon)
+	weapon_added.emit(weapon)
+	return weapon
+
+func get_weapons() -> Array[Weapon]:
+	var weapons: Array[Weapon] = []
+	weapons.assign($Weapons.get_children())
+	return weapons
 
 func take_damage(amount: float) -> void:
 	if invulnerable:

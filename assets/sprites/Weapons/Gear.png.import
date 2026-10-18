@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://doiwm3tq0k8uk"
-path="res://.godot/imported/RaioParaRaio.png-bf1a37b11a768409c189cbde792533f2.ctex"
+uid="uid://bhclksrnqaj20"
+path="res://.godot/imported/Gear.png-88bc9700ca4cbec3af5e064c5b61cfec.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ataques/RaioParaRaio.png"
-dest_files=["res://.godot/imported/RaioParaRaio.png-bf1a37b11a768409c189cbde792533f2.ctex"]
+source_file="res://assets/sprites/Weapons/Gear.png"
+dest_files=["res://.godot/imported/Gear.png-88bc9700ca4cbec3af5e064c5b61cfec.ctex"]
 
 [params]
 

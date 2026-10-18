@@ -1,5 +1,7 @@
 extends Node
 
+signal enemy_killed
+
 @export var enemy_scene: PackedScene
 @export var spawn_interval: float = 1.0
 @export var spawn_radius: float = 600.0
@@ -17,5 +19,6 @@ func _process(delta: float) -> void:
 		return
 
 	var enemy := enemy_scene.instantiate() as Node2D
+	enemy.died.connect(enemy_killed.emit)
 	get_parent().add_child(enemy)
 	enemy.global_position = player.global_position + Vector2.from_angle(randf() * TAU) * spawn_radius

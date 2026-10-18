@@ -1,4 +1,7 @@
+class_name Enemy
 extends CharacterBody2D
+
+signal died
 
 @export var speed: float = 80.0
 @export var hp: float = 20.0
@@ -6,12 +9,16 @@ extends CharacterBody2D
 
 var player: Node2D
 var wobble_time: float = 0.0
+var _stun_time: float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemies")
 	player = get_tree().get_first_node_in_group("player") as Node2D
 
 func _physics_process(delta: float) -> void:
+	if _stun_time > 0.0:
+		_stun_time -= delta
+		return
 	if not is_instance_valid(player):
 		return
 
@@ -29,6 +36,9 @@ func _physics_process(delta: float) -> void:
 			body.take_damage(damage)
 
 func take_damage(amount: float) -> void:
+	# Vários acertos no mesmo frame chegam antes do queue_free e contariam a morte duas vezes
+	if hp <= 0:
+		return
 	hp -= amount
 
 	# Modulate acima de 1 estoura o brilho para branco sem precisar de animação
@@ -36,4 +46,9 @@ func take_damage(amount: float) -> void:
 	create_tween().tween_property($Sprite2D, "modulate", Color.WHITE, 0.1)
 
 	if hp <= 0:
+		died.emit()
 		queue_free()
+
+# Parado também não causa dano de contato
+func stun(duration: float) -> void:
+	_stun_time = maxf(_stun_time, duration)

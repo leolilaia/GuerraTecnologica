@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://7726mhl32810"]
-
-[ext_resource type="Script" uid="uid://bp7ynevskppff" path="res://scripts/weapons/weapon.gd" id="1_weapon"]
-[ext_resource type="PackedScene" uid="uid://rjkkfg2fmscd" path="res://scenes/weapons/projectile.tscn" id="2_projectile"]
-
-[node name="AdaWeapon" type="Node2D" unique_id=749481566]
-script = ExtResource("1_weapon")
-projectile_scene = ExtResource("2_projectile")
