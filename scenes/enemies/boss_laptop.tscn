@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://c5qus4qvt6g04"]
+
+[ext_resource type="PackedScene" uid="uid://bkyi5xtnirpsd" path="res://scenes/enemies/boss_smartphone.tscn" id="1_omapj"]
+[ext_resource type="Texture2D" uid="uid://cmf11kuj6kkw0" path="res://assets/sprites/Inimigos/Bosses/Laptop.png" id="2_fp5ts"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0ufpx"]
+size = Vector2(155, 125)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pi41u"]
+size = Vector2(154, 125)
+
+[node name="boss_laptop" unique_id=410658759 instance=ExtResource("1_omapj")]
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(98, 80.50001)
+scale = Vector2(0.671875, 0.5742188)
+texture = ExtResource("2_fp5ts")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
+position = Vector2(98.5, 74.5)
+shape = SubResource("RectangleShape2D_0ufpx")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(99, 75)
+shape = SubResource("RectangleShape2D_pi41u")

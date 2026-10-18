@@ -86,6 +86,7 @@ func _next_wave() -> void:
 	wave_timer = 0.0
 	spawn_timer = 0.0
 	wave_started.emit(wave)
+	print("Fase ", level, " - wave ", wave)
 
 func _spawn(enemy_name: String, player: Node2D, hp_mult: float = 1.0) -> Node2D:
 	var scene: PackedScene = enemy_scenes.get(enemy_name, default_enemy)

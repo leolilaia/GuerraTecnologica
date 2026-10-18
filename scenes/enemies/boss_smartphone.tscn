@@ -19,6 +19,7 @@ height = 122.0
 
 [node name="boss_smartphone" unique_id=410658759 instance=ExtResource("1_0j0bj")]
 script = ExtResource("2_3snqj")
+attack_pool = Array[int]([0, 1, 2, 3, 4, 5])
 projectile_scene = ExtResource("3_1fahf")
 throwables = Array[Texture2D]([ExtResource("4_c8xt0"), ExtResource("5_vfp2t"), ExtResource("6_8fl6b")])
 projectile_damage = 8.0
@@ -26,8 +27,10 @@ top_ratio = 0.75
 sway_speed = 0.9
 attack_interval = 2.4
 attack_interval_phase2 = 1.7
+big_throwables = Array[Texture2D]([])
+big_size = 1.8
 speed = 60.0
-hp = 1500.0
+hp = 10.0
 damage = 15.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=555424325]

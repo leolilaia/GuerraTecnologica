@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://bsqp07cqq1mr8"]
 
 [ext_resource type="Script" uid="uid://boca82i80uwq6" path="res://scripts/world/world_generator.gd" id="1_8tuti"]
-[ext_resource type="Texture2D" uid="uid://pf6jngn0swox" path="res://assets/sprites/Cenario/Chao/ChaoBranco.png" id="2_8tuti"]
+[ext_resource type="Texture2D" uid="uid://dqhu1xh2ag277" path="res://assets/sprites/Cenario/Chao/ChaoBranco.png" id="2_8tuti"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_i4c15"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8tuti"]
 texture = ExtResource("2_8tuti")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_tmq5d"]
 tile_size = Vector2i(32, 32)
-sources/2 = SubResource("TileSetAtlasSource_i4c15")
+sources/1 = SubResource("TileSetAtlasSource_8tuti")
 
 [node name="WorldGenerator" type="Node2D" unique_id=764464101 node_paths=PackedStringArray("floor_layer")]
 script = ExtResource("1_8tuti")
