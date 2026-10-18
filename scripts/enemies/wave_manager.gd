@@ -9,6 +9,7 @@ signal game_won
 @export var wave_duration: float = 15.0
 @export var spawn_radius: float = 600.0
 @export var start_level: int = 1
+@export var start_wave: int = 1
 @export var test_boss_now: bool = false    # só para teste: pula as waves e vai direto ao boss
 @export var heal_after_boss: float = 30.0
 @export var enemy_scenes: Dictionary[String, PackedScene] = {}
@@ -39,7 +40,7 @@ func _ready() -> void:
 	await get_tree().process_frame
 	while get_tree().get_first_node_in_group("player") == null:
 		await get_tree().process_frame
-	_begin_level(start_level)
+	_begin_level(start_level, start_wave)
 
 func _process(delta: float) -> void:
 	var player := get_tree().get_first_node_in_group("player") as Node2D
@@ -70,9 +71,9 @@ func _physics_process(_delta: float) -> void:
 		clampf(player.global_position.x, fight_center.x - fight_half_size.x, fight_center.x + fight_half_size.x),
 		clampf(player.global_position.y, fight_center.y - fight_half_size.y, fight_center.y + fight_half_size.y))
 
-func _begin_level(n: int) -> void:
+func _begin_level(n: int, first_wave: int = 1) -> void:
 	level = clampi(n, 1, levels.size())
-	wave = 0
+	wave = clampi(first_wave, 1, levels[level - 1]["waves"]) - 1
 	busy = false
 	level_started.emit(level)
 	get_tree().call_group("world", "set_floor", level - 1)
@@ -99,7 +100,7 @@ func _spawn(enemy_name: String, player: Node2D, hp_mult: float = 1.0) -> Node2D:
 		enemy.hp *= hp_mult
 	if "xp_value" in enemy:
 		enemy.xp_value *= hp_mult
-	enemy.died.connect(enemy_killed.emit)
+	enemy.died.connect(_on_enemy_died.bind(enemy))
 	get_parent().add_child(enemy)
 	enemy.global_position = player.global_position + Vector2.from_angle(randf() * TAU) * spawn_radius
 	return enemy
@@ -137,8 +138,14 @@ func _start_boss_fight(boss_name: String) -> void:
 	boss.global_position = fight_center + Vector2(0, -fight_half_size.y * 0.75)
 	boss.begin_fight(fight_center, fight_half_size)
 	boss.defeated.connect(_on_boss_defeated)
-	boss.died.connect(enemy_killed.emit)
+	boss.died.connect(_on_enemy_died.bind(boss))
 	in_boss_fight = true
+
+# O nome da cena identifica o inimigo no bestiário; o XP vira os Bytes da partida
+func _on_enemy_died(enemy: Node) -> void:
+	enemy_killed.emit()
+	var xp: float = enemy.get("xp_value") if "xp_value" in enemy else 1.0
+	SavedData.registrar_abate(enemy.scene_file_path.get_file().get_basename(), ceili(xp))
 
 func _on_boss_defeated() -> void:
 	in_boss_fight = false
@@ -149,6 +156,8 @@ func _on_boss_defeated() -> void:
 		fight_camera.position = camera_offset
 	boss_defeated.emit(level)
 	_heal_player()
+	for id in Catalogo.characters_unlocked_by(level):
+		SavedData.desbloquear_personagem(id)
 
 	if level >= levels.size():
 		_show_banner("VITÓRIA!", 4.0)

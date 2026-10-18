@@ -1,0 +1,214 @@
+[gd_scene format=3 uid="uid://bnx4fkxut8prp"]
+
+[ext_resource type="Script" uid="uid://be1okgvi7molg" path="res://scripts/ui/GameOver.gd" id="1_game_over"]
+[ext_resource type="FontFile" uid="uid://b37gar74tlpc3" path="res://fonts/eas-vhs.ttf" id="2_font"]
+[ext_resource type="Texture2D" uid="uid://chg6cdko03fgg" path="res://assets/sprites/ui/Fundo.jpeg" id="3_bg"]
+[ext_resource type="StyleBox" uid="uid://codrkj5ik3dm" path="res://styles/botao/normal.tres" id="3_g15n1"]
+
+[sub_resource type="Gradient" id="VignetteGradient"]
+offsets = PackedFloat32Array(0, 0.45, 1)
+colors = PackedColorArray(0, 0, 0, 0.92, 0.25, 0, 0.025, 0.48, 0, 0, 0, 0.92)
+
+[sub_resource type="GradientTexture2D" id="VignetteTexture"]
+gradient = SubResource("VignetteGradient")
+width = 640
+height = 360
+fill = 1
+fill_from = Vector2(0, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g15n1"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0, 0, 0, 0.9411765)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.22352941, 1, 0.078431375, 0.84313726)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fttml"]
+bg_color = Color(0.09998604, 0.099985994, 0.09998598, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.49411765, 1, 0.4, 0.8235294)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw1as"]
+content_margin_left = 16.0
+content_margin_right = 16.0
+bg_color = Color(0.15286049, 0.15286049, 0.15286049, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2901961, 0.87058824, 0.5019608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6duax"]
+bg_color = Color(0.15127608, 0.15127608, 0.15127608, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.2901961, 0.87058824, 0.5019608, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 2.0
+expand_margin_top = 2.0
+expand_margin_right = 2.0
+expand_margin_bottom = 2.0
+
+[node name="GameOver" type="Control" unique_id=1933519630]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_game_over")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=113736064]
+modulate = Color(0.16, 0.08, 0.09, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = ExtResource("3_bg")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Escuro" type="ColorRect" parent="." unique_id=712505376]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.64)
+
+[node name="Vinheta" type="TextureRect" parent="." unique_id=901228585]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+texture = SubResource("VignetteTexture")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Centro" type="CenterContainer" parent="." unique_id=2009330625]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Centro" unique_id=1480187992]
+custom_minimum_size = Vector2(460, 290)
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_g15n1")
+
+[node name="Conteudo" type="VBoxContainer" parent="Centro/Painel" unique_id=1278702500]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Titulo" type="Label" parent="Centro/Painel/Conteudo" unique_id=352213391]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 1, 0.4, 0.7137255)
+theme_override_colors/font_shadow_color = Color(0.08, 0, 0.01, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 48
+text = "GAME OVER"
+horizontal_alignment = 1
+
+[node name="Linha" type="HSeparator" parent="Centro/Painel/Conteudo" unique_id=1674267770]
+custom_minimum_size = Vector2(370, 2)
+layout_mode = 2
+
+[node name="Abates" type="Label" parent="Centro/Painel/Conteudo" unique_id=37110268]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(0.49411765, 1, 0.4, 0.7137255)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 13
+text = "Abates"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Pontos" type="Label" parent="Centro/Painel/Conteudo" unique_id=1976040564]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 1, 0.4, 0.7137255)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 13
+text = "Pontos"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Tempo" type="Label" parent="Centro/Painel/Conteudo" unique_id=1349214599]
+custom_minimum_size = Vector2(100, 30)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.49411765, 1, 0.4, 0.7137255)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 13
+text = "Tempo"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Centro/Painel/Conteudo" unique_id=479184903]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="BotaoBase" type="Button" parent="Centro/Painel/Conteudo/HBoxContainer" unique_id=1270938073]
+custom_minimum_size = Vector2(240, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_g15n1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fttml")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gw1as")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6duax")
+text = "VOLTAR Á BASE"
+
+[node name="BotaoMenu" type="Button" parent="Centro/Painel/Conteudo/HBoxContainer" unique_id=1160330672]
+custom_minimum_size = Vector2(240, 35)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.875, 0.875, 0.875, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = SubResource("StyleBoxFlat_g15n1")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fttml")
+theme_override_styles/hover = SubResource("StyleBoxFlat_gw1as")
+theme_override_styles/focus = SubResource("StyleBoxFlat_6duax")
+text = "VOLTAR AO MENU"
