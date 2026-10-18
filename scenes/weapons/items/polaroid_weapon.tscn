@@ -1,0 +1,12 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/weapons/items/polaroid_weapon.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/Itens/Polaroid.png" id="2_tex"]
+
+[node name="PolaroidWeapon" type="Node2D"]
+script = ExtResource("1_script")
+display_name = "Polaroid"
+damage = 30.0
+cooldown = 3.0
+damage_per_level = 6.0
+icon = ExtResource("2_tex")

@@ -4,12 +4,17 @@
 [ext_resource type="PackedScene" path="res://scenes/weapons/characters/ada_weapon.tscn" id="2_ada"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/characters/hedy_weapon.tscn" id="3_hedy"]
 [ext_resource type="PackedScene" path="res://scenes/weapons/characters/turing_weapon.tscn" id="4_turing"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/items/tesla_coil_weapon.tscn" id="5_tesla_coil_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/items/stun_radio_weapon.tscn" id="6_stun_radio_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/items/polaroid_weapon.tscn" id="7_polaroid_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/items/phone_whip_weapon.tscn" id="8_phone_whip_weapon"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/items/lightning_weapon.tscn" id="9_lightning_weapon"]
 
 [node name="LevelUpScreen" type="CanvasLayer"]
 process_mode = 3
 layer = 30
 script = ExtResource("1_screen")
-weapon_scenes = Array[PackedScene]([ExtResource("2_ada"), ExtResource("3_hedy"), ExtResource("4_turing")])
+weapon_scenes = Array[PackedScene]([ExtResource("2_ada"), ExtResource("3_hedy"), ExtResource("4_turing"), ExtResource("5_tesla_coil_weapon"), ExtResource("6_stun_radio_weapon"), ExtResource("7_polaroid_weapon"), ExtResource("8_phone_whip_weapon"), ExtResource("9_lightning_weapon")])
 
 [node name="Dim" type="ColorRect" parent="."]
 anchors_preset = 15

@@ -59,7 +59,7 @@ func _build_offers() -> Array[Dictionary]:
 		if not weapon.is_max_level():
 			pool.append({
 				"title": weapon.display_name, "icon": weapon.icon,
-				"description": "Nível %d → %d" % [weapon.level, weapon.level + 1],
+				"description": weapon.describe_next_level(),
 				"apply": weapon.level_up})
 	for scene in weapon_scenes:
 		if owned.has(scene.resource_path):

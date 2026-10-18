@@ -13,6 +13,7 @@ const XP_ORB_SCENE := preload("res://scenes/pickups/xp_orb.tscn")
 var player: Node2D
 var wobble_time: float = 0.0
 var _stun_time: float = 0.0
+var _tint_tween: Tween
 
 func _ready() -> void:
 	add_to_group("enemies")
@@ -60,6 +61,15 @@ func _drop_xp_orb() -> void:
 	# A morte chega no meio da checagem de colisão, quando não dá para criar áreas
 	get_parent().add_child.call_deferred(orb)
 
-# Parado também não causa dano de contato
-func stun(duration: float) -> void:
+# Parado também não causa dano de contato. A cor marca quem está travado e
+# vai no nó inteiro para não brigar com o flash de dano, que é no Sprite2D.
+func stun(duration: float, tint: Color = Color.WHITE) -> void:
 	_stun_time = maxf(_stun_time, duration)
+	if tint == Color.WHITE:
+		return
+	if _tint_tween:
+		_tint_tween.kill()
+	modulate = tint
+	_tint_tween = create_tween()
+	_tint_tween.tween_interval(duration)
+	_tint_tween.tween_property(self, "modulate", Color.WHITE, 0.15)

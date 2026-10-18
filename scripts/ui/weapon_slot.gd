@@ -7,8 +7,6 @@ var _weapon: Weapon
 
 func bind(weapon: Weapon) -> void:
 	_weapon = weapon
-	_icon.texture = weapon.icon
-	tooltip_text = weapon.display_name
 	weapon.leveled_up.connect(_on_leveled_up)
 	weapon.tree_exited.connect(queue_free)
 	_refresh()
@@ -21,6 +19,8 @@ func _on_leveled_up(_level: int) -> void:
 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 func _refresh() -> void:
+	_icon.texture = _weapon.icon
+	tooltip_text = _weapon.display_name
 	if _weapon.is_max_level():
 		_level_label.text = "MAX"
 		_level_label.modulate = Color(1, 0.84, 0.45)
