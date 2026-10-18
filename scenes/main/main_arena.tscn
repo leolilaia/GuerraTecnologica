@@ -3,38 +3,14 @@
 [ext_resource type="PackedScene" uid="uid://bsqp07cqq1mr8" path="res://scenes/world/world_generator.tscn" id="1_ktrib"]
 [ext_resource type="PackedScene" uid="uid://dmcme03bjx7n6" path="res://scenes/player/player.tscn" id="2_igey7"]
 [ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="3_igey7"]
-[ext_resource type="Script" uid="uid://cjsseyrf0h4kj" path="res://scripts/hud.gd" id="4_y7d6u"]
-[ext_resource type="Script" uid="uid://dxqgh5bs0d7e8" path="res://scripts/enemy_spawner.gd" id="5_ai6ef"]
-[ext_resource type="Script" uid="uid://ba6ld4pwhqds1" path="res://scripts/enemybase.gd" id="6_vy0at"]
-[ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genéricos/Samsung.png" id="7_g1wnh"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
-radius = 3.0
-height = 12.0
-
-[sub_resource type="PackedScene" id="PackedScene_3eu38"]
-_bundled = {
-"conn_count": 0,
-"conns": PackedInt32Array(),
-"editable_instances": [],
-"id_paths": [PackedInt32Array(), PackedInt32Array(), PackedInt32Array()],
-"names": PackedStringArray("SmartBotao", "CharacterBody2D", "script", "Sprite2D", "Sprite2D", "position", "scale", "texture", "Hitbox", "Area2D", "CollisionShape2D", "CollisionShape2D", "position", "shape"),
-"node_count": 4,
-"node_ids": PackedInt32Array(410658759, 555424325, 1228511987, 2107185566),
-"node_paths": [NodePath("."), NodePath("."), NodePath("./Hitbox")],
-"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 1, 2, 0, 0, 1073741824, 0, 4, 3, -1, 3, 5, 1, 6, 2, 7, 3, 0, 1073741825, 0, 9, 8, -1, 0, 0, 1073741826, 0, 11, 10, -1, 2, 12, 4, 13, 5, 0),
-"variants": [ExtResource("6_vy0at"), Vector2(-4.7683716e-07, -2.2351742e-08), Vector2(0.053710926, 0.06347656), ExtResource("7_g1wnh"), Vector2(-1, 0), SubResource("CapsuleShape2D_tmq5d")],
-"version": 3
-}
+[ext_resource type="Script" uid="uid://cjsseyrf0h4kj" path="res://scripts/ui/hud.gd" id="4_y7d6u"]
+[ext_resource type="Script" uid="uid://dxqgh5bs0d7e8" path="res://scripts/enemies/enemy_spawner.gd" id="5_ai6ef"]
 
 [node name="MainArena" type="Node2D" unique_id=2030471012]
 
 [node name="WorldGenerator" parent="." unique_id=764464101 instance=ExtResource("1_ktrib")]
 
 [node name="Player" parent="." unique_id=1957060281 instance=ExtResource("2_igey7")]
-
-[node name="SmartBotao" parent="." unique_id=410658759 instance=ExtResource("3_igey7")]
-position = Vector2(39, 1)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1778295995]
 script = ExtResource("4_y7d6u")
@@ -52,4 +28,4 @@ show_percentage = false
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1885426375]
 script = ExtResource("5_ai6ef")
-enemy_scene = SubResource("PackedScene_3eu38")
+enemy_scene = ExtResource("3_igey7")

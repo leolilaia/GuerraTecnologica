@@ -1,7 +1,7 @@
 extends Area2D
 
 @export var damage: float = 3.0
-@export var tick: float = 0.5   # dano a cada 0,5 s
+@export var tick: float = 0.5
 
 var timer: float = 0.0
 

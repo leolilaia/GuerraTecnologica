@@ -1,11 +1,11 @@
 extends Node2D
 
-@export var projectile_scene: PackedScene   # arraste projectile.tscn aqui
-@export var fire_rate: float = 3.0          # tiros por segundo
+@export var projectile_scene: PackedScene
+@export var fire_rate: float = 1.0
 @export var damage: float = 10.0
-@export var projectile_speed: float = 600.0
-@export var pierce: int = 3                 # quantos inimigos acerta (-1 = atravessa tudo)
-@export var hold_to_fire: bool = false      # true = só atira segurando o botão esquerdo
+@export var projectile_speed: float = 400.0
+@export var pierce: int = 3  # -1 atravessa todos os inimigos
+@export var hold_to_fire: bool = false
 
 var cooldown: float = 0.0
 
@@ -26,8 +26,7 @@ func _fire(dir: Vector2) -> void:
 	if projectile_scene == null:
 		return
 	var p := projectile_scene.instantiate()
-	get_tree().current_scene.add_child(p)   # na arena, para não andar junto com o player
+	# Filho da arena, e não do player, para o tiro não acompanhar o movimento dele
+	get_tree().current_scene.add_child(p)
 	p.global_position = global_position
 	p.setup(dir, damage, projectile_speed, pierce)
-
-@export var starting_weapon: PackedScene

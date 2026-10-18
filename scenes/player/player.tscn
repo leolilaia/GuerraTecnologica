@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://dmcme03bjx7n6"]
 
-[ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player.gd" id="1_qm0ti"]
-[ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/alan-turing.png" id="2_fhbv5"]
-[ext_resource type="PackedScene" uid="uid://ch6guehjk5w22" path="res://scenes/weapons/heady_weapon.tscn" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player/player.gd" id="1_qm0ti"]
+[ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/AlanTuring.png" id="2_fhbv5"]
+[ext_resource type="PackedScene" path="res://scenes/weapons/ada_weapon.tscn" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
 radius = 7.0
@@ -22,4 +22,4 @@ texture = ExtResource("2_fhbv5")
 position = Vector2(-1, -5)
 zoom = Vector2(3, 3)
 
-[node name="HeadyWeapon" parent="." unique_id=1308651868 instance=ExtResource("5_p47bc")]
+[node name="AdaWeapon" parent="." unique_id=1150768907 instance=ExtResource("3_gmlin")]

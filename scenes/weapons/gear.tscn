@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://c0purdd87gl31"]
 
-[ext_resource type="Script" uid="uid://bivuikjm8qg5q" path="res://scripts/gear.gd" id="1_xvyr2"]
+[ext_resource type="Script" uid="uid://bivuikjm8qg5q" path="res://scripts/weapons/gear.gd" id="1_xvyr2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g5l8u"]
 radius = 19.235384
 
-[node name="Gear_tscn" type="Area2D" unique_id=1343470985]
+[node name="Gear" type="Area2D" unique_id=1343470985]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("1_xvyr2")

@@ -1,3 +1,9 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+
+# Exports e arquivos locais
+export_presets.cfg
+*.translation
+.mono/
+data_*/

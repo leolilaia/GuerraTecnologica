@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://rjkkfg2fmscd"]
 
-[ext_resource type="Script" uid="uid://3qahkltdxn3r" path="res://scripts/projectile.gd" id="1_e8efe"]
+[ext_resource type="Script" uid="uid://3qahkltdxn3r" path="res://scripts/weapons/projectile.gd" id="1_e8efe"]
+[ext_resource type="Texture2D" uid="uid://i0y0h1qad4h7" path="res://assets/sprites/Ataques/AtaqueAdaLovelace.png" id="2_qp4n5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tmq5d"]
-size = Vector2(64, 8)
+size = Vector2(20, 8)
 
 [node name="Projectile" type="Area2D" unique_id=572210245]
 collision_layer = 0
@@ -11,6 +12,8 @@ collision_mask = 2
 script = ExtResource("1_e8efe")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=754959454]
+rotation = 1.5707964
+texture = ExtResource("2_qp4n5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1728241813]
 shape = SubResource("RectangleShape2D_tmq5d")

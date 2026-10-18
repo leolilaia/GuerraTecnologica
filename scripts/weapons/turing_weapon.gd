@@ -1,9 +1,9 @@
 extends Node2D
 
-@export var gear_scene: PackedScene   # arraste gear.tscn
+@export var gear_scene: PackedScene
 @export var cooldown: float = 2.0
 @export var damage: float = 10.0
-@export var level: int = 1            # número de engrenagens por disparo
+@export var level: int = 1
 
 var timer: float = 0.0
 
@@ -21,4 +21,4 @@ func _fire() -> void:
 	for i in level:
 		var gear := gear_scene.instantiate()
 		get_tree().current_scene.add_child(gear)
-		gear.setup(player, TAU * i / level, damage)   # 360° / N entre cada uma
+		gear.setup(player, TAU * i / level, damage)

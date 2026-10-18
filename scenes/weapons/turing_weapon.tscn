@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dcn35offa7fyd"]
 
-[ext_resource type="Script" uid="uid://d3sb1swin5t36" path="res://scripts/turing_weapon.gd" id="1_lsxph"]
+[ext_resource type="Script" uid="uid://d3sb1swin5t36" path="res://scripts/weapons/turing_weapon.gd" id="1_lsxph"]
 
 [node name="TuringWeapon" type="Node2D" unique_id=1214969652]
 script = ExtResource("1_lsxph")

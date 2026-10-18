@@ -5,11 +5,10 @@ signal died
 
 @export var speed: float = 200.0
 @export var max_hp: float = 100.0
+@export var starting_weapon: PackedScene
 
 var hp: float
 var invulnerable: bool = false
-
-@export var starting_weapon: PackedScene
 
 func _ready() -> void:
 	add_to_group("player")
@@ -18,29 +17,26 @@ func _ready() -> void:
 		add_child(starting_weapon.instantiate())
 
 func _physics_process(_delta: float) -> void:
-	var direction: Vector2 = Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
 	velocity = direction * speed
 	move_and_slide()
-	
-	if direction.x != 0 and has_node("Sprite2D"):
+
+	if direction.x != 0:
 		$Sprite2D.flip_h = direction.x < 0
 
 func take_damage(amount: float) -> void:
 	if invulnerable:
 		return
 	hp -= amount
-	print("HP do player: ", hp)
 	health_changed.emit(hp, max_hp)
-	
-	# i-frames: meio segundo sem tomar dano, com feedback vermelho
-	invulnerable = true
-	if has_node("Sprite2D"):
-		$Sprite2D.modulate = Color(1, 0.4, 0.4)
-	await get_tree().create_timer(0.5).timeout
-	invulnerable = false
-	if has_node("Sprite2D"):
-		$Sprite2D.modulate = Color.WHITE
-	
+
 	if hp <= 0:
 		died.emit()
 		get_tree().reload_current_scene()
+		return
+
+	invulnerable = true
+	$Sprite2D.modulate = Color(1, 0.4, 0.4)
+	await get_tree().create_timer(0.5).timeout
+	invulnerable = false
+	$Sprite2D.modulate = Color.WHITE
