@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3]
+
+[ext_resource type="Script" path="res://scripts/characters/character_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://oj7jvxwhuijh" path="res://assets/sprites/Personagens/HedyLamarr.png" id="2_sprite"]
+[ext_resource type="PackedScene" uid="uid://ch6guehjk5w22" path="res://scenes/weapons/characters/hedy_weapon.tscn" id="3_weapon"]
+
+[resource]
+script = ExtResource("1_data")
+display_name = "Hedy Lamarr"
+sprite = ExtResource("2_sprite")
+starting_weapon = ExtResource("3_weapon")

@@ -2,9 +2,6 @@
 
 [ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/AlanTuring.png" id="2_fhbv5"]
-[ext_resource type="PackedScene" uid="uid://7726mhl32810" path="res://scenes/weapons/characters/ada_weapon.tscn" id="3_gmlin"]
-[ext_resource type="PackedScene" uid="uid://ch6guehjk5w22" path="res://scenes/weapons/characters/hedy_weapon.tscn" id="3_p47bc"]
-[ext_resource type="PackedScene" uid="uid://dcn35offa7fyd" path="res://scenes/weapons/characters/turing_weapon.tscn" id="4_75vfm"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
 radius = 7.0
@@ -26,8 +23,3 @@ zoom = Vector2(3, 3)
 
 [node name="Weapons" type="Node2D" parent="." unique_id=1650768908]
 
-[node name="HedyWeapon" parent="Weapons" unique_id=1308651868 instance=ExtResource("3_p47bc")]
-
-[node name="AdaWeapon" parent="Weapons" unique_id=1150768907 instance=ExtResource("3_gmlin")]
-
-[node name="TuringWeapon" parent="Weapons" unique_id=1214969652 instance=ExtResource("4_75vfm")]

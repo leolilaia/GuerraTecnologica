@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c0purdd87gl31"]
 
 [ext_resource type="Script" uid="uid://bivuikjm8qg5q" path="res://scripts/weapons/projectiles/gear.gd" id="1_xvyr2"]
-[ext_resource type="Texture2D" uid="uid://bhclksrnqaj20" path="res://assets/sprites/Ataques/GearAlanTuring.png" id="2_tvvdl"]
+[ext_resource type="Texture2D" uid="uid://bhclksrnqaj20" path="res://assets/sprites/Weapons/Gear.png" id="2_tvvdl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tvvdl"]
 atlas = ExtResource("2_tvvdl")

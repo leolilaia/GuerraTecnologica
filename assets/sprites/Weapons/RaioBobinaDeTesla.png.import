@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://chdl5w47hiqib"
-path="res://.godot/imported/ArmaAdaLovelace.png-93449bc19aa2cd6f1c2628fc12727d23.ctex"
+uid="uid://c35xrxyy7wf0n"
+path="res://.godot/imported/RaioBobinaDeTesla.png-b6ab3ca79bfe3ad46114aa08586a4b17.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ataques/ArmaAdaLovelace.png"
-dest_files=["res://.godot/imported/ArmaAdaLovelace.png-93449bc19aa2cd6f1c2628fc12727d23.ctex"]
+source_file="res://assets/sprites/Weapons/RaioBobinaDeTesla.png"
+dest_files=["res://.godot/imported/RaioBobinaDeTesla.png-b6ab3ca79bfe3ad46114aa08586a4b17.ctex"]
 
 [params]
 

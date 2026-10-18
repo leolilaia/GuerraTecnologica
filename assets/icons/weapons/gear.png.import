@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhclksrnqaj20"
-path="res://.godot/imported/GearAlanTuring.png-f6d46a487e98423354de3bfc2f8c11ef.ctex"
+uid="uid://dndajmuy6yevx"
+path="res://.godot/imported/gear.png-5ac01311f0bae1e236bb4ecd2cb8611a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Ataques/GearAlanTuring.png"
-dest_files=["res://.godot/imported/GearAlanTuring.png-f6d46a487e98423354de3bfc2f8c11ef.ctex"]
+source_file="res://assets/icons/weapons/gear.png"
+dest_files=["res://.godot/imported/gear.png-5ac01311f0bae1e236bb4ecd2cb8611a.ctex"]
 
 [params]
 

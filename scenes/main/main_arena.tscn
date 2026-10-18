@@ -3,16 +3,21 @@
 [ext_resource type="PackedScene" uid="uid://bsqp07cqq1mr8" path="res://scenes/world/world_generator.tscn" id="1_ktrib"]
 [ext_resource type="PackedScene" uid="uid://dmcme03bjx7n6" path="res://scenes/player/player.tscn" id="2_igey7"]
 [ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemy_base.tscn" id="3_igey7"]
+[ext_resource type="Resource" path="res://resources/characters/hedy_lamarr.tres" id="4_vy0at"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="4_y7d6u"]
 [ext_resource type="Script" uid="uid://dxqgh5bs0d7e8" path="res://scripts/enemies/enemy_spawner.gd" id="5_ai6ef"]
+[ext_resource type="Script" uid="uid://bacbdgilgvb2y" path="res://scripts/player/player_spawner.gd" id="6_spawner"]
 
 [node name="MainArena" type="Node2D" unique_id=2030471012]
 
 [node name="WorldGenerator" parent="." unique_id=764464101 instance=ExtResource("1_ktrib")]
 
-[node name="Player" parent="." unique_id=1957060281 instance=ExtResource("2_igey7")]
+[node name="PlayerSpawner" type="Node2D" parent="." unique_id=1048639801]
+script = ExtResource("6_spawner")
+player_scene = ExtResource("2_igey7")
+character = ExtResource("4_vy0at")
 
-[node name="HUD" parent="." node_paths=PackedStringArray("spawner") instance=ExtResource("4_y7d6u")]
+[node name="HUD" parent="." unique_id=1340031289 node_paths=PackedStringArray("spawner") instance=ExtResource("4_y7d6u")]
 spawner = NodePath("../EnemySpawner")
 
 [node name="EnemySpawner" type="Node2D" parent="." unique_id=1885426375]

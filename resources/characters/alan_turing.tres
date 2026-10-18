@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="CharacterData" format=3 uid="uid://dqtf5u7tgqllq"]
+
+[ext_resource type="Script" uid="uid://ccndipcruga7d" path="res://scripts/characters/character_data.gd" id="1_data"]
+[ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/AlanTuring.png" id="2_sprite"]
+[ext_resource type="PackedScene" uid="uid://dcn35offa7fyd" path="res://scenes/weapons/characters/turing_weapon.tscn" id="3_weapon"]
+
+[resource]
+script = ExtResource("1_data")
+display_name = "Alan Turing"
+sprite = ExtResource("2_sprite")
+starting_weapon = ExtResource("3_weapon")
