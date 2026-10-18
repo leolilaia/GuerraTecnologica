@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://bsqp07cqq1mr8" path="res://scenes/world/world_generator.tscn" id="1_ktrib"]
 [ext_resource type="PackedScene" uid="uid://dmcme03bjx7n6" path="res://scenes/player/player.tscn" id="2_igey7"]
 [ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="3_igey7"]
+[ext_resource type="Resource" path="res://resources/characters/ada_lovelace.tres" id="4_0ufpx"]
 [ext_resource type="Script" uid="uid://bxqgfkwe2thvm" path="res://scripts/enemies/wave_manager.gd" id="4_i1fls"]
-[ext_resource type="Resource" path="res://resources/characters/hedy_lamarr.tres" id="4_vy0at"]
 [ext_resource type="PackedScene" path="res://scenes/ui/hud.tscn" id="4_y7d6u"]
 [ext_resource type="PackedScene" uid="uid://bovr3b75702ej" path="res://scenes/enemies/smartwatch.tscn" id="6_hquk5"]
 [ext_resource type="Script" uid="uid://bacbdgilgvb2y" path="res://scripts/player/player_spawner.gd" id="6_spawner"]
@@ -20,7 +20,7 @@
 [node name="PlayerSpawner" type="Node2D" parent="." unique_id=1048639801]
 script = ExtResource("6_spawner")
 player_scene = ExtResource("2_igey7")
-character = ExtResource("4_vy0at")
+character = ExtResource("4_0ufpx")
 
 [node name="HUD" parent="." unique_id=1340031289 node_paths=PackedStringArray("wave_manager") instance=ExtResource("4_y7d6u")]
 wave_manager = NodePath("../WaveManager")
