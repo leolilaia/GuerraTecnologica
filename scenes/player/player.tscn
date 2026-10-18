@@ -28,6 +28,6 @@ zoom = Vector2(3, 3)
 
 [node name="HedyWeapon" parent="Weapons" unique_id=1308651868 instance=ExtResource("3_p47bc")]
 
-[node name="TuringWeapon" parent="Weapons" unique_id=1214969652 instance=ExtResource("4_75vfm")]
-
 [node name="AdaWeapon" parent="Weapons" unique_id=1150768907 instance=ExtResource("3_gmlin")]
+
+[node name="TuringWeapon" parent="Weapons" unique_id=1214969652 instance=ExtResource("4_75vfm")]

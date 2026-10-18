@@ -5,6 +5,6 @@
 
 [node name="TuringWeapon" type="Node2D" unique_id=1214969652]
 script = ExtResource("1_lsxph")
+gear_scene = ExtResource("2_gear")
 cooldown = 2.0
 damage_per_level = 5.0
-gear_scene = ExtResource("2_gear")
