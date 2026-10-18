@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cs8krvafcngvt"]
+
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="1_1wfr2"]
+[ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="2_qihab"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vy0at"]
+size = Vector2(27, 16.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hquk5"]
+size = Vector2(26.5, 12.53125)
+
+[node name="Microondas" unique_id=410658759 instance=ExtResource("1_1wfr2")]
+speed = 70.0
+hp = 45.0
+damage = 15.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(2.5712895, 3.874023)
+scale = Vector2(0.96429425, 0.82037354)
+texture = ExtResource("2_qihab")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
+position = Vector2(3, 5)
+shape = SubResource("RectangleShape2D_vy0at")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(3, 4)
+shape = SubResource("RectangleShape2D_hquk5")

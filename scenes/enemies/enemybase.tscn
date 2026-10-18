@@ -22,7 +22,6 @@ texture = ExtResource("2_73n04")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=1228511987]
 collision_layer = 0
-collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=2107185566]
 position = Vector2(-1, 0)

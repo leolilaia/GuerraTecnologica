@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://bovr3b75702ej"]
+
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="1_gui71"]
+[ext_resource type="Texture2D" uid="uid://bre11b7p01dfu" path="res://assets/sprites/Inimigos/Genericos/Smartwatch.png" id="2_s8fm8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mh42"]
+radius = 3.0
+height = 12.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hwyph"]
+radius = 3.0
+height = 12.0
+
+[node name="Smartwatch" unique_id=410658759 instance=ExtResource("1_gui71")]
+speed = 130.0
+hp = 8.0
+damage = 3.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+texture = ExtResource("2_s8fm8")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
+position = Vector2(0, 0)
+shape = SubResource("CapsuleShape2D_8mh42")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(0, 0)
+shape = SubResource("CapsuleShape2D_hwyph")

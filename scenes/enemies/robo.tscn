@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://b05p2oa1k7k2e"]
+
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="1_htgoa"]
+[ext_resource type="Texture2D" uid="uid://cgy1ycv6cyjvo" path="res://assets/sprites/Inimigos/Genericos/Robo.png" id="2_ev7c2"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv60j"]
+radius = 15.0
+height = 40.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dk7nm"]
+radius = 12.0
+height = 40.0
+
+[node name="Robô" unique_id=410658759 instance=ExtResource("1_htgoa")]
+speed = 70.0
+hp = 120.0
+damage = 12.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(18.531252, 12.46875)
+scale = Vector2(0.16772458, 0.19165039)
+texture = ExtResource("2_ev7c2")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
+position = Vector2(16, 19)
+shape = SubResource("CapsuleShape2D_nv60j")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(15, 21)
+shape = SubResource("CapsuleShape2D_dk7nm")
