@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b05p2oa1k7k2e"]
 
-[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemy_base.tscn" id="1_htgoa"]
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="1_htgoa"]
 [ext_resource type="Texture2D" uid="uid://cgy1ycv6cyjvo" path="res://assets/sprites/Inimigos/Genericos/Robo.png" id="2_ev7c2"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nv60j"]

@@ -10,6 +10,7 @@ var last_player_tile: Vector2i = Vector2i.ZERO
 var floor_source_id: int = 0
 
 func _ready() -> void:
+	add_to_group("world")
 	if floor_layer == null and has_node("TileMapLayer"):
 		floor_layer = $TileMapLayer
 
@@ -44,3 +45,16 @@ func _update_world_chunks() -> void:
 			if not generated_cells.has(cell):
 				generated_cells[cell] = true
 				floor_layer.set_cell(cell, floor_source_id, Vector2i.ZERO)
+				
+const LEVEL_TINTS := [Color.WHITE, Color(0.75, 0.85, 1.0), Color(1.0, 0.8, 0.8), Color(0.8, 1.0, 0.85), Color(0.85, 0.75, 1.0)]
+
+func set_floor(index: int) -> void:
+	if floor_layer == null:
+		return
+	var ts := floor_layer.tile_set
+	if ts != null and index < ts.get_source_count():
+		floor_source_id = ts.get_source_id(index)
+		generated_cells.clear()
+		floor_layer.clear()
+		_update_world_chunks()
+	floor_layer.modulate = LEVEL_TINTS[index % LEVEL_TINTS.size()]

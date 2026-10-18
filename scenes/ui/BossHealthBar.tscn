@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dcjhpvxfi0yvl"]
+
+[ext_resource type="Script" uid="uid://8soh24fvo04q" path="res://scripts/ui/boss_health_bar.gd" id="1_v8qyo"]
+
+[node name="BossHealthBar" type="CanvasLayer" unique_id=933261140]
+layer = 10
+script = ExtResource("1_v8qyo")
+
+[node name="Bar" type="ProgressBar" parent="." unique_id=1842020888]
+anchors_preset = -1
+anchor_left = 0.14400001
+anchor_top = 0.12200001
+anchor_right = 0.791
+anchor_bottom = 0.164
+offset_left = 0.11198425
+offset_top = -0.056007385
+offset_right = -0.23199463
+offset_bottom = -0.27200317
+show_percentage = false

@@ -1,13 +1,10 @@
 extends CanvasLayer
 
-## XP, nível e onda ainda não têm sistema: set_experience(), set_level() e
-## set_wave() são a porta de entrada para quando eles existirem.
-
 const WEAPON_SLOT_SCENE := preload("res://scenes/ui/weapon_slot.tscn")
 
 ## Fração de vida abaixo da qual a vinheta vermelha começa a pulsar
 @export_range(0.0, 1.0) var low_health_ratio: float = 0.3
-@export var spawner: Node
+@export var wave_manager: Node
 
 @onready var _health_bars: Control = %Bars
 @onready var _health_bar: ProgressBar = %HealthBar
@@ -32,8 +29,9 @@ func _ready() -> void:
 	set_level(1)
 	set_wave(1)
 	_update_kills()
-	if spawner:
-		spawner.enemy_killed.connect(_on_enemy_killed)
+	if wave_manager:
+		wave_manager.enemy_killed.connect(_on_enemy_killed)
+		wave_manager.wave_started.connect(set_wave)
 
 	# O player só entra no grupo em seu próprio _ready, que roda depois do deste nó
 	await get_tree().process_frame
