@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://d3sb1swin5t36" path="res://scripts/weapons/characters/turing_weapon.gd" id="1_lsxph"]
 [ext_resource type="PackedScene" uid="uid://c0purdd87gl31" path="res://scenes/weapons/projectiles/gear.tscn" id="2_gear"]
+[ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/AlanTuring.png" id="9_icon"]
 
 [node name="TuringWeapon" type="Node2D" unique_id=1214969652]
 script = ExtResource("1_lsxph")
+display_name = "Engrenagens"
+icon = ExtResource("9_icon")
 gear_scene = ExtResource("2_gear")
 cooldown = 2.0
 damage_per_level = 5.0

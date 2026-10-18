@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 signal health_changed(hp: float, max_hp: float)
 signal died
+signal weapon_added(weapon: Weapon)
 
 @export var speed: float = 200.0
 @export var max_hp: float = 100.0
@@ -27,6 +28,7 @@ func _physics_process(_delta: float) -> void:
 func add_weapon(scene: PackedScene) -> Weapon:
 	var weapon := scene.instantiate() as Weapon
 	$Weapons.add_child(weapon)
+	weapon_added.emit(weapon)
 	return weapon
 
 func get_weapons() -> Array[Weapon]:

@@ -2,8 +2,11 @@
 
 [ext_resource type="Script" uid="uid://bp7ynevskppff" path="res://scripts/weapons/characters/ada_weapon.gd" id="1_weapon"]
 [ext_resource type="PackedScene" uid="uid://rjkkfg2fmscd" path="res://scenes/weapons/projectiles/projectile.tscn" id="2_projectile"]
+[ext_resource type="Texture2D" uid="uid://dg8mq7nkp8wb1" path="res://assets/sprites/Personagens/AdaLovelace.png" id="9_icon"]
 
 [node name="AdaWeapon" type="Node2D" unique_id=749481566]
 script = ExtResource("1_weapon")
+display_name = "Código"
+icon = ExtResource("9_icon")
 damage_per_level = 5.0
 projectile_scene = ExtResource("2_projectile")

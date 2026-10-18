@@ -4,6 +4,10 @@ extends Node2D
 ## Base de todas as armas: cada arma só implementa _attack() e, se tiver
 ## upgrade além de dano, _on_level_up().
 
+signal leveled_up(level: int)
+
+@export var display_name: String = ""
+@export var icon: Texture2D
 @export var damage: float = 10.0
 @export var cooldown: float = 1.0
 @export var max_level: int = 5
@@ -25,6 +29,7 @@ func level_up() -> void:
 	level += 1
 	damage += damage_per_level
 	_on_level_up()
+	leveled_up.emit(level)
 
 func is_max_level() -> bool:
 	return level >= max_level

@@ -1,0 +1,201 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" uid="uid://cjsseyrf0h4kj" path="res://scripts/ui/hud.gd" id="1_hud"]
+[ext_resource type="Shader" path="res://shaders/vignette.gdshader" id="2_vignette"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vignette"]
+shader = ExtResource("2_vignette")
+shader_parameter/tint = Color(0.85, 0.05, 0.1, 1)
+shader_parameter/intensity = 0.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_track"]
+bg_color = Color(0, 0, 0, 0.45)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xp_fill"]
+bg_color = Color(0.36, 0.72, 1, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_damage_fill"]
+bg_color = Color(1, 1, 1, 0.55)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_none"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_health_fill"]
+bg_color = Color(0.9, 0.28, 0.3, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_hud")
+
+[node name="Vignette" type="ColorRect" parent="."]
+unique_name_in_owner = true
+material = SubResource("ShaderMaterial_vignette")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="XpRow" type="HBoxContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = 30.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = 10
+
+[node name="LevelLabel" type="Label" parent="XpRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "Nv 1"
+vertical_alignment = 1
+
+[node name="XpBar" type="ProgressBar" parent="XpRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 6)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_track")
+theme_override_styles/fill = SubResource("StyleBoxFlat_xp_fill")
+show_percentage = false
+
+[node name="Health" type="HBoxContainer" parent="."]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 276.0
+offset_bottom = 58.0
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Bars" type="Control" parent="Health"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(180, 8)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="DamageBar" type="ProgressBar" parent="Health/Bars"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_track")
+theme_override_styles/fill = SubResource("StyleBoxFlat_damage_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HealthBar" type="ProgressBar" parent="Health/Bars"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/background = SubResource("StyleBoxEmpty_none")
+theme_override_styles/fill = SubResource("StyleBoxFlat_health_fill")
+value = 100.0
+show_percentage = false
+
+[node name="HealthLabel" type="Label" parent="Health"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.85)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "100"
+vertical_alignment = 1
+
+[node name="Center" type="VBoxContainer" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 36.0
+offset_right = 80.0
+offset_bottom = 90.0
+grow_horizontal = 2
+mouse_filter = 2
+theme_override_constants/separation = -4
+
+[node name="TimeLabel" type="Label" parent="Center"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/font_size = 26
+text = "00:00"
+horizontal_alignment = 1
+
+[node name="WaveLabel" type="Label" parent="Center"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0.9)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "ONDA 1"
+horizontal_alignment = 1
+
+[node name="KillsLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -216.0
+offset_top = 36.0
+offset_right = -16.0
+offset_bottom = 60.0
+grow_horizontal = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.6)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 14
+text = "0 abates"
+horizontal_alignment = 2
+
+[node name="WeaponSlots" type="HBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -80.0
+offset_right = 416.0
+offset_bottom = -16.0
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/separation = 6
