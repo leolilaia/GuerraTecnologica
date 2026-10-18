@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bmlyr752yxma3"
-path="res://.godot/imported/ChãoMetal.png-e3d6ed37b68b1c87edd868ce46618f34.ctex"
+uid="uid://bre11b7p01dfu"
+path="res://.godot/imported/Smartwatch.png-fc549bc011223a809bf038787dab0dd7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cenário/Chão/ChãoMetal.png"
-dest_files=["res://.godot/imported/ChãoMetal.png-e3d6ed37b68b1c87edd868ce46618f34.ctex"]
+source_file="res://assets/sprites/Inimigos/Genericos/Smartwatch.png"
+dest_files=["res://.godot/imported/Smartwatch.png-fc549bc011223a809bf038787dab0dd7.ctex"]
 
 [params]
 

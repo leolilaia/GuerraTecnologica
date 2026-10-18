@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwncdrr0b3uqu"
-path="res://.godot/imported/ChãoAzul.png-72a2168b763bc222d8c375df63a30c07.ctex"
+uid="uid://c736fbsleuc0n"
+path="res://.godot/imported/Geladeira.png-bbf2bf6eaf8d4012b74e0332b291129a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cenário/Chão/ChãoAzul.png"
-dest_files=["res://.godot/imported/ChãoAzul.png-72a2168b763bc222d8c375df63a30c07.ctex"]
+source_file="res://assets/sprites/Inimigos/Genericos/Geladeira.png"
+dest_files=["res://.godot/imported/Geladeira.png-bbf2bf6eaf8d4012b74e0332b291129a.ctex"]
 
 [params]
 

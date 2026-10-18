@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dg8mq7nkp8wb1"
-path="res://.godot/imported/Ada Lovelace.png-e7daca7101c1c6f94a99f7d26ef62283.ctex"
+uid="uid://c35xrxyy7wf0n"
+path="res://.godot/imported/RaioBobinaDeTesla.png-a814719bf2f559c31e2d35d3142c9ab9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/Ada Lovelace.png"
-dest_files=["res://.godot/imported/Ada Lovelace.png-e7daca7101c1c6f94a99f7d26ef62283.ctex"]
+source_file="res://assets/sprites/Ataques/RaioBobinaDeTesla.png"
+dest_files=["res://.godot/imported/RaioBobinaDeTesla.png-a814719bf2f559c31e2d35d3142c9ab9.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pf6jngn0swox"
-path="res://.godot/imported/ChãoBranco.png-ec1f2c639fb8b6c6b95f92097151edbc.ctex"
+uid="uid://oj7jvxwhuijh"
+path="res://.godot/imported/HedyLamarr.png-441fdb56d6f31d284115162035050627.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cenário/Chão/ChãoBranco.png"
-dest_files=["res://.godot/imported/ChãoBranco.png-ec1f2c639fb8b6c6b95f92097151edbc.ctex"]
+source_file="res://assets/sprites/Personagens/HedyLamarr.png"
+dest_files=["res://.godot/imported/HedyLamarr.png-441fdb56d6f31d284115162035050627.ctex"]
 
 [params]
 

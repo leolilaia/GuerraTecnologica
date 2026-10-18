@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bwe83xfg3fbsc"
-path="res://.godot/imported/Rádio.png-6fb1da795f5c66127abbf1b949a2a522.ctex"
+uid="uid://bmlyr752yxma3"
+path="res://.godot/imported/ChaoMetal.png-85515824a61d22a85cfd6d8cb8b8e9b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Itens/Rádio.png"
-dest_files=["res://.godot/imported/Rádio.png-6fb1da795f5c66127abbf1b949a2a522.ctex"]
+source_file="res://assets/sprites/Cenario/Chao/ChaoMetal.png"
+dest_files=["res://.godot/imported/ChaoMetal.png-85515824a61d22a85cfd6d8cb8b8e9b8.ctex"]
 
 [params]
 

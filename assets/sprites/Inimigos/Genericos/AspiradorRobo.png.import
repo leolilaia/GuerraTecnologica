@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bre11b7p01dfu"
-path="res://.godot/imported/Smartwhatch.png-c42af97d66e42d4969ee419d2971e52c.ctex"
+uid="uid://l2kqufi14pk7"
+path="res://.godot/imported/AspiradorRobo.png-a0e8e806b8c1651ceda3d7bce9a0e31d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Inimigos/Genéricos/Smartwhatch.png"
-dest_files=["res://.godot/imported/Smartwhatch.png-c42af97d66e42d4969ee419d2971e52c.ctex"]
+source_file="res://assets/sprites/Inimigos/Genericos/AspiradorRobo.png"
+dest_files=["res://.godot/imported/AspiradorRobo.png-a0e8e806b8c1651ceda3d7bce9a0e31d.ctex"]
 
 [params]
 

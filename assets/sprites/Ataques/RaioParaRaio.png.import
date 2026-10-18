@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cgy1ycv6cyjvo"
-path="res://.godot/imported/Robô.png-81c16940d176809745e298a22d302199.ctex"
+uid="uid://doiwm3tq0k8uk"
+path="res://.godot/imported/RaioParaRaio.png-bf1a37b11a768409c189cbde792533f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Inimigos/Genéricos/Robô.png"
-dest_files=["res://.godot/imported/Robô.png-81c16940d176809745e298a22d302199.ctex"]
+source_file="res://assets/sprites/Ataques/RaioParaRaio.png"
+dest_files=["res://.godot/imported/RaioParaRaio.png-bf1a37b11a768409c189cbde792533f2.ctex"]
 
 [params]
 

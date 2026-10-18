@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://oj7jvxwhuijh"
-path="res://.godot/imported/HadyLamarr.png-c86197236332d3f7caa71b115c9c85b1.ctex"
+uid="uid://hmakf0u1pfns"
+path="res://.godot/imported/AlanTuring.png-a7cf182cd99a7259f2bfe9774590e589.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/HadyLamarr.png"
-dest_files=["res://.godot/imported/HadyLamarr.png-c86197236332d3f7caa71b115c9c85b1.ctex"]
+source_file="res://assets/sprites/Personagens/AlanTuring.png"
+dest_files=["res://.godot/imported/AlanTuring.png-a7cf182cd99a7259f2bfe9774590e589.ctex"]
 
 [params]
 

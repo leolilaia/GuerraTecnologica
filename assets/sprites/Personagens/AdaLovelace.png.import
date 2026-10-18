@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hmakf0u1pfns"
-path="res://.godot/imported/alan-turing.png-b921befa5cc74b3f74915d7629094d1a.ctex"
+uid="uid://dg8mq7nkp8wb1"
+path="res://.godot/imported/AdaLovelace.png-7dd4616844e7edd99b99930488b65c48.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Personagens/alan-turing.png"
-dest_files=["res://.godot/imported/alan-turing.png-b921befa5cc74b3f74915d7629094d1a.ctex"]
+source_file="res://assets/sprites/Personagens/AdaLovelace.png"
+dest_files=["res://.godot/imported/AdaLovelace.png-7dd4616844e7edd99b99930488b65c48.ctex"]
 
 [params]
 

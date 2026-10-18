@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtavaffwbtcd"
-path="res://.godot/imported/Branco.png-8b9eca9e31b8318ac2d2426b2b3ea346.ctex"
+uid="uid://id5yiyaypgjq"
+path="res://.godot/imported/Microondas.png-f7c971c444d279e97bbe120b0612df3e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Cenário/Chão/Branco.png"
-dest_files=["res://.godot/imported/Branco.png-8b9eca9e31b8318ac2d2426b2b3ea346.ctex"]
+source_file="res://assets/sprites/Inimigos/Genericos/Microondas.png"
+dest_files=["res://.godot/imported/Microondas.png-f7c971c444d279e97bbe120b0612df3e.ctex"]
 
 [params]
 

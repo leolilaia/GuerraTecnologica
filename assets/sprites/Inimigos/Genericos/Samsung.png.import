@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5gaikcr2tdn"
-path="res://.godot/imported/Polariod.png-0e3535f2dae5a9cf11d738e43b536344.ctex"
+uid="uid://363xqhquj21m"
+path="res://.godot/imported/Samsung.png-d40908f239f581d84d569069d4677bc3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Itens/Polariod.png"
-dest_files=["res://.godot/imported/Polariod.png-0e3535f2dae5a9cf11d738e43b536344.ctex"]
+source_file="res://assets/sprites/Inimigos/Genericos/Samsung.png"
+dest_files=["res://.godot/imported/Samsung.png-d40908f239f581d84d569069d4677bc3.ctex"]
 
 [params]
 
