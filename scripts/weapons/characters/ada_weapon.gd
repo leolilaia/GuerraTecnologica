@@ -7,6 +7,10 @@ extends Weapon
 @export var area_per_level: float = 0.2
 
 var projectile_scale: float = 1.0
+var _player: Player
+
+func _ready() -> void:
+	_player = get_tree().get_first_node_in_group("player") as Player
 
 func _process(delta: float) -> void:
 	rotation = _aim_direction().angle()
@@ -26,5 +30,8 @@ func _attack() -> void:
 func _on_level_up() -> void:
 	projectile_scale += area_per_level
 
+# Clicando, mira no mouse; sem clicar, atira para onde o personagem anda
 func _aim_direction() -> Vector2:
-	return (get_global_mouse_position() - global_position).normalized()
+	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or _player == null:
+		return (get_global_mouse_position() - global_position).normalized()
+	return _player.facing

@@ -16,6 +16,8 @@ signal leveled_up(level: int)
 
 var hp: float
 var invulnerable: bool = false
+# Última direção em que andou: parado, continua valendo para quem mira por ela
+var facing: Vector2 = Vector2.RIGHT
 # Nível do personagem; o "level" do WaveManager é a fase
 var level: int = 1
 var xp: float = 0.0
@@ -40,6 +42,8 @@ func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = direction * speed
 	move_and_slide()
+	if direction != Vector2.ZERO:
+		facing = direction.normalized()
 
 	if direction.x != 0:
 		$Sprite2D.flip_h = direction.x < 0
