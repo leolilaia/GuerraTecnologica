@@ -14,12 +14,11 @@ script = ExtResource("1_qm0ti")
 position = Vector2(-3, 3)
 shape = SubResource("CapsuleShape2D_tmq5d")
 
+[node name="Weapons" type="Node2D" parent="." unique_id=1650768908]
+
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=541790927]
 texture = ExtResource("2_fhbv5")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=966813502]
 position = Vector2(-1, -5)
 zoom = Vector2(3, 3)
-
-[node name="Weapons" type="Node2D" parent="." unique_id=1650768908]
-
