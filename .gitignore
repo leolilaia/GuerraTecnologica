@@ -7,3 +7,4 @@ export_presets.cfg
 *.translation
 .mono/
 data_*/
+.vscode/

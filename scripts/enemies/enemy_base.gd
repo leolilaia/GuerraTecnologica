@@ -1,3 +1,4 @@
+class_name Enemy
 extends CharacterBody2D
 
 @export var speed: float = 80.0
@@ -6,12 +7,16 @@ extends CharacterBody2D
 
 var player: Node2D
 var wobble_time: float = 0.0
+var _stun_time: float = 0.0
 
 func _ready() -> void:
 	add_to_group("enemies")
 	player = get_tree().get_first_node_in_group("player") as Node2D
 
 func _physics_process(delta: float) -> void:
+	if _stun_time > 0.0:
+		_stun_time -= delta
+		return
 	if not is_instance_valid(player):
 		return
 
@@ -37,3 +42,7 @@ func take_damage(amount: float) -> void:
 
 	if hp <= 0:
 		queue_free()
+
+# Parado também não causa dano de contato
+func stun(duration: float) -> void:
+	_stun_time = maxf(_stun_time, duration)

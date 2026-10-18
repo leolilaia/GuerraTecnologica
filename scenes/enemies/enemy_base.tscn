@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://1640r0stkje4"]
 
-[ext_resource type="Script" uid="uid://ba6ld4pwhqds1" path="res://scripts/enemies/enemybase.gd" id="1_0mhav"]
+[ext_resource type="Script" uid="uid://ba6ld4pwhqds1" path="res://scripts/enemies/enemy_base.gd" id="1_0mhav"]
 [ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genericos/Samsung.png" id="2_73n04"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
@@ -11,7 +11,7 @@ height = 18.0
 radius = 3.0
 height = 12.0
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=410658759]
+[node name="Enemy" type="CharacterBody2D" unique_id=410658759]
 collision_layer = 2
 script = ExtResource("1_0mhav")
 

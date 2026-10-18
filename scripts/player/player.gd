@@ -14,7 +14,7 @@ func _ready() -> void:
 	add_to_group("player")
 	hp = max_hp
 	if starting_weapon:
-		add_child(starting_weapon.instantiate())
+		add_weapon(starting_weapon)
 
 func _physics_process(_delta: float) -> void:
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -23,6 +23,16 @@ func _physics_process(_delta: float) -> void:
 
 	if direction.x != 0:
 		$Sprite2D.flip_h = direction.x < 0
+
+func add_weapon(scene: PackedScene) -> Weapon:
+	var weapon := scene.instantiate() as Weapon
+	$Weapons.add_child(weapon)
+	return weapon
+
+func get_weapons() -> Array[Weapon]:
+	var weapons: Array[Weapon] = []
+	weapons.assign($Weapons.get_children())
+	return weapons
 
 func take_damage(amount: float) -> void:
 	if invulnerable:

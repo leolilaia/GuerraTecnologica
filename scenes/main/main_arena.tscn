@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bsqp07cqq1mr8" path="res://scenes/world/world_generator.tscn" id="1_ktrib"]
 [ext_resource type="PackedScene" uid="uid://dmcme03bjx7n6" path="res://scenes/player/player.tscn" id="2_igey7"]
-[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="3_igey7"]
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemy_base.tscn" id="3_igey7"]
 [ext_resource type="Script" uid="uid://cjsseyrf0h4kj" path="res://scripts/ui/hud.gd" id="4_y7d6u"]
 [ext_resource type="Script" uid="uid://dxqgh5bs0d7e8" path="res://scripts/enemies/enemy_spawner.gd" id="5_ai6ef"]
 

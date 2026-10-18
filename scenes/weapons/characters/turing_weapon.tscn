@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dcn35offa7fyd"]
+
+[ext_resource type="Script" uid="uid://d3sb1swin5t36" path="res://scripts/weapons/characters/turing_weapon.gd" id="1_lsxph"]
+[ext_resource type="PackedScene" uid="uid://c0purdd87gl31" path="res://scenes/weapons/projectiles/gear.tscn" id="2_gear"]
+
+[node name="TuringWeapon" type="Node2D" unique_id=1214969652]
+script = ExtResource("1_lsxph")
+cooldown = 2.0
+damage_per_level = 5.0
+gear_scene = ExtResource("2_gear")
