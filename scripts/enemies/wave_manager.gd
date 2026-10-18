@@ -3,6 +3,7 @@ extends Node
 signal level_started(level: int)
 signal wave_started(wave: int)
 signal boss_defeated(level: int)
+signal enemy_killed
 signal game_won
 
 @export var wave_duration: float = 15.0
@@ -96,6 +97,9 @@ func _spawn(enemy_name: String, player: Node2D, hp_mult: float = 1.0) -> Node2D:
 	var enemy := scene.instantiate() as Node2D
 	if "hp" in enemy:
 		enemy.hp *= hp_mult
+	if "xp_value" in enemy:
+		enemy.xp_value *= hp_mult
+	enemy.died.connect(enemy_killed.emit)
 	get_parent().add_child(enemy)
 	enemy.global_position = player.global_position + Vector2.from_angle(randf() * TAU) * spawn_radius
 	return enemy
@@ -133,6 +137,7 @@ func _start_boss_fight(boss_name: String) -> void:
 	boss.global_position = fight_center + Vector2(0, -fight_half_size.y * 0.75)
 	boss.begin_fight(fight_center, fight_half_size)
 	boss.defeated.connect(_on_boss_defeated)
+	boss.died.connect(enemy_killed.emit)
 	in_boss_fight = true
 
 func _on_boss_defeated() -> void:
@@ -150,7 +155,7 @@ func _on_boss_defeated() -> void:
 		game_won.emit()
 		return
 	_show_banner("FASE %d CONCLUÍDA!" % level, 2.0)
-	await get_tree().create_timer(2.5).timeout
+	await get_tree().create_timer(2.5, false).timeout
 	_begin_level(level + 1)
 
 func _heal_player() -> void:

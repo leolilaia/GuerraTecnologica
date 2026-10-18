@@ -67,7 +67,7 @@ func _fountain() -> void:
 	for i in count:
 		var a := deg_to_rad(randf_range(-160.0, -20.0))
 		shoot(global_position, Vector2.from_angle(a), {
-			"speed": randf_range(280.0, 460.0), "gravity": 520.0,
+			"speed": randf_range(280.0, 460.0), "gravity": 1040.0,
 			"spin": randf_range(-7.0, 7.0), "lifetime": 5.0,
 			"big": i % 4 == 0})
 

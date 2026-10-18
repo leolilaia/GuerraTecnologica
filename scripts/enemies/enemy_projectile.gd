@@ -21,7 +21,6 @@ func setup(dir: Vector2, dmg: float, opts: Dictionary = {}) -> void:
 	damage = dmg
 	vel = dir.normalized() * opts.get("speed", 300.0)
 	spin = opts.get("spin", 0.0)
-	gravity = opts.get("gravity", 0.0)
 	bounces_left = opts.get("bounces", 0)
 	bounds_center = opts.get("bounds_center", Vector2.ZERO)
 	bounds_half = opts.get("bounds_half", Vector2.ZERO)
@@ -39,7 +38,6 @@ func setup(dir: Vector2, dmg: float, opts: Dictionary = {}) -> void:
 		rotation = vel.angle()
 
 func _physics_process(delta: float) -> void:
-	vel.y += gravity * delta
 	global_position += vel * delta
 	rotation += spin * delta
 	vel.y += fall_gravity * delta
