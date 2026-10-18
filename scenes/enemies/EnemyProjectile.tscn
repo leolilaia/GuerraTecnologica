@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bla07x4gumtjk"]
+
+[ext_resource type="Script" uid="uid://cl1uv6higtdto" path="res://scenes/enemies/enemy_projectile.gd" id="1_r1yng"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tmq5d"]
+
+[node name="EnemyProjectile" type="Area2D" unique_id=322903282]
+collision_layer = 0
+script = ExtResource("1_r1yng")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1998269846]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1829674731]
+shape = SubResource("CircleShape2D_tmq5d")

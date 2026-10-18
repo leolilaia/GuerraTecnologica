@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://bacbdgilgvb2y" path="res://scripts/player/player_spawner.gd" id="6_spawner"]
 [ext_resource type="PackedScene" uid="uid://cs8krvafcngvt" path="res://scenes/enemies/microondas.tscn" id="6_vy0at"]
 [ext_resource type="PackedScene" uid="uid://b05p2oa1k7k2e" path="res://scenes/enemies/robo.tscn" id="7_g1wnh"]
+[ext_resource type="PackedScene" uid="uid://bkyi5xtnirpsd" path="res://scenes/enemies/boss_smartphone.tscn" id="10_pi41u"]
 
 [node name="MainArena" type="Node2D" unique_id=2030471012]
 
@@ -20,13 +21,12 @@ script = ExtResource("6_spawner")
 player_scene = ExtResource("2_igey7")
 character = ExtResource("4_vy0at")
 
-[node name="HUD" parent="." unique_id=1340031289 node_paths=PackedStringArray("spawner") instance=ExtResource("4_y7d6u")]
-spawner = NodePath("")
+[node name="HUD" parent="." unique_id=1340031289 instance=ExtResource("4_y7d6u")]
 
 [node name="WaveManager" type="Node2D" parent="." unique_id=2049395163]
 script = ExtResource("4_i1fls")
-wave_duration = 2.0
 enemy_scenes = Dictionary[String, PackedScene]({
+"boss_smartphone": ExtResource("10_pi41u"),
 "celular": ExtResource("3_igey7"),
 "microondas": ExtResource("6_vy0at"),
 "robo": ExtResource("7_g1wnh")

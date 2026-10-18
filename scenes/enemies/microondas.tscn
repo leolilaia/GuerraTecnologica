@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cs8krvafcngvt"]
 
-[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="1_1wfr2"]
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemy_base.tscn" id="1_1wfr2"]
 [ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="2_qihab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy0at"]

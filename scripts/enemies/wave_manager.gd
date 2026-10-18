@@ -8,6 +8,7 @@ signal game_won
 @export var max_wave: int = 50
 # Em cada chave, o nome do inimigo; em cada valor, a cena (preencha no Inspetor)
 @export var enemy_scenes: Dictionary[String, PackedScene] = {}
+@export var start_wave: int = 1
 
 var wave: int = 0
 var wave_timer: float = 0.0
@@ -26,7 +27,8 @@ var wave_table: Array[Dictionary] = [
 var boss_waves: Dictionary = {10: "boss_smartphone", 20: "boss_laptop", 30: "boss_desktop", 50: "boss_ia"}
 
 func _ready() -> void:
-	_start_wave(1)
+	await get_tree().process_frame   # espera a arena (e o PlayerSpawner) terminarem de montar a cena
+	_start_wave(start_wave)
 
 func _process(delta: float) -> void:
 	var player := get_tree().get_first_node_in_group("player") as Node2D

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bovr3b75702ej"]
 
-[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemybase.tscn" id="1_gui71"]
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/enemy_base.tscn" id="1_gui71"]
 [ext_resource type="Texture2D" uid="uid://bre11b7p01dfu" path="res://assets/sprites/Inimigos/Genericos/Smartwatch.png" id="2_s8fm8"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8mh42"]
@@ -26,3 +26,4 @@ shape = SubResource("CapsuleShape2D_8mh42")
 [node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
 position = Vector2(0, 0)
 shape = SubResource("CapsuleShape2D_hwyph")
+
