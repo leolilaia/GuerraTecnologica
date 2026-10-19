@@ -1,14 +1,18 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://fdeeoec3asw3"]
 
-[ext_resource type="Script" path="res://scripts/weapons/items/lightning_weapon.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Weapons/RaioParaRaio.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://bhri21uq8eirh" path="res://scripts/weapons/items/lightning_weapon.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://doiwm3tq0k8uk" path="res://assets/sprites/Weapons/RaioParaRaio.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://cdkq21qphdp08" path="res://assets/sprites/Cartas/CartaPara-Raio.png" id="3_4x2f4"]
 
-[node name="LightningWeapon" type="Node2D"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v4vme"]
+load_path = "res://.godot/imported/RaioParaRaio.png-2f8328118d31581252bca52d3dac594c.ctex"
+
+[node name="LightningWeapon" type="Node2D" unique_id=1295247347]
 script = ExtResource("1_script")
+bolt_texture = ExtResource("2_tex")
+evolved_icon = SubResource("CompressedTexture2D_v4vme")
 display_name = "Raio"
+icon = ExtResource("3_4x2f4")
 damage = 20.0
 cooldown = 3.0
 damage_per_level = 4.0
-icon = ExtResource("2_tex")
-bolt_texture = ExtResource("2_tex")
-evolved_icon = ExtResource("2_tex")

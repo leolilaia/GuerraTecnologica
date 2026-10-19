@@ -62,3 +62,4 @@ func _spawn_in_world(scene: PackedScene) -> Node:
 	var node := scene.instantiate()
 	get_tree().current_scene.add_child(node)
 	return node
+	

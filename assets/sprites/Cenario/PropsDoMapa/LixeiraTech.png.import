@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cvh8c6uhx6rb7"
-path="res://.godot/imported/Fone_Projetil.png-f4b59b9b6fd5a80845de985ffdbfaf37.ctex"
+uid="uid://gx2u8jhfjk77"
+path="res://.godot/imported/LixeiraTech.png-305b125a2c4a6dbb1d6d6a8bc2cdb8fd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Inimigos/Genericos/Fone_Projetil.png"
-dest_files=["res://.godot/imported/Fone_Projetil.png-f4b59b9b6fd5a80845de985ffdbfaf37.ctex"]
+source_file="res://assets/sprites/Cenario/PropsDoMapa/LixeiraTech.png"
+dest_files=["res://.godot/imported/LixeiraTech.png-305b125a2c4a6dbb1d6d6a8bc2cdb8fd.ctex"]
 
 [params]
 

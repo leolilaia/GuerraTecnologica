@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bhclksrnqaj20"
-path="res://.godot/imported/Gear.png-88bc9700ca4cbec3af5e064c5b61cfec.ctex"
+uid="uid://dyf00lxcvilql"
+path="res://.godot/imported/CartaNokia.png-8ff1f4845d978a1a1d84639e817a5b1a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/Weapons/Gear.png"
-dest_files=["res://.godot/imported/Gear.png-88bc9700ca4cbec3af5e064c5b61cfec.ctex"]
+source_file="res://assets/sprites/Cartas/CartaNokia.png"
+dest_files=["res://.godot/imported/CartaNokia.png-8ff1f4845d978a1a1d84639e817a5b1a.ctex"]
 
 [params]
 

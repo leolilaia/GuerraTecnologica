@@ -1,15 +1,16 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://bce75n1u0rfj5"]
 
-[ext_resource type="Script" path="res://scripts/weapons/items/tesla_coil_weapon.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Itens/BobinaTesla.png" id="2_tex"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Weapons/RaioBobinaDeTesla.png" id="3_tex"]
+[ext_resource type="Script" uid="uid://hxk81ln2nnf3" path="res://scripts/weapons/items/tesla_coil_weapon.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dsoad2mgg2ofu" path="res://assets/sprites/Itens/BobinaTesla.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://c35xrxyy7wf0n" path="res://assets/sprites/Weapons/RaioBobinaDeTesla.png" id="3_tex"]
+[ext_resource type="Texture2D" uid="uid://f23ps417g7qx" path="res://assets/sprites/Cartas/CartaBobinaTesla.png" id="4_iw710"]
 
-[node name="TeslaCoilWeapon" type="Node2D"]
+[node name="TeslaCoilWeapon" type="Node2D" unique_id=881812244]
 script = ExtResource("1_script")
-display_name = "Bobina de Tesla"
-damage = 8.0
-cooldown = 1.2
-damage_per_level = 2.0
-icon = ExtResource("2_tex")
 coil_texture = ExtResource("2_tex")
 bolt_texture = ExtResource("3_tex")
+display_name = "Bobina de Tesla"
+icon = ExtResource("4_iw710")
+damage = 8.0
+cooldown = 1.3
+damage_per_level = 1.8

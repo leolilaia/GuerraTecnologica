@@ -68,3 +68,9 @@ func _draw() -> void:
 		points.append(Vector2.from_angle(_flash_angle - half + 2.0 * half * i / 24.0) * reach)
 	draw_colored_polygon(points, Color(flash_color, 0.55 * alpha))
 	draw_polyline(points.slice(1), Color(flash_color, alpha), 1.5)
+	
+func _aim_angle() -> float:
+	var input_dir := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if input_dir != Vector2.ZERO:
+		return input_dir.angle()
+	return 0.0

@@ -121,8 +121,8 @@ theme_override_constants/shadow_offset_x = 3
 theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("2_font")
 theme_override_font_sizes/font_size = 40
-text = "GUERRA
-TECNOLÓGICA"
+text = "    Tech
+        Wars"
 
 [node name="Subtitulo" type="Label" parent="Layout/Conteudo" unique_id=117746111]
 layout_mode = 2

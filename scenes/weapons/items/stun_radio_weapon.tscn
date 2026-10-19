@@ -1,13 +1,13 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://c80sqolygx1vw"]
 
-[ext_resource type="Script" path="res://scripts/weapons/items/stun_radio_weapon.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Itens/Radio.png" id="2_tex"]
-[ext_resource type="Texture2D" path="res://assets/sprites/Weapons/AtaqueRadio.png" id="3_tex"]
+[ext_resource type="Script" uid="uid://lc4fgapm1qyf" path="res://scripts/weapons/items/stun_radio_weapon.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://b82om1fure43g" path="res://assets/sprites/Cartas/CartaRadio.png" id="3_k7c07"]
+[ext_resource type="Texture2D" uid="uid://b67dsvixnyfxc" path="res://assets/sprites/Weapons/AtaqueRadio.png" id="3_tex"]
 
-[node name="StunRadioWeapon" type="Node2D"]
+[node name="StunRadioWeapon" type="Node2D" unique_id=2137224367]
 script = ExtResource("1_script")
+wave_texture = ExtResource("3_tex")
 display_name = "Rádio de Stun"
+icon = ExtResource("3_k7c07")
 damage = 0.0
 cooldown = 4.0
-icon = ExtResource("2_tex")
-wave_texture = ExtResource("3_tex")

@@ -5,7 +5,7 @@ extends Resource
 ## (F5) pula menu, save e Base e cai direto na arena com o setup abaixo.
 ## Não tem efeito no jogo exportado.
 
-@export var enabled: bool = true
+@export var enabled: bool = false
 
 @export_group("Personagem")
 @export_enum("ada", "turing", "hedy") var character_id: String = "ada"

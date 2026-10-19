@@ -30,7 +30,7 @@ attack_interval_phase2 = 1.7
 big_throwables = Array[Texture2D]([])
 big_size = 1.8
 speed = 60.0
-hp = 10.0
+hp = 1500.0
 damage = 15.0
 xp_value = 50.0
 

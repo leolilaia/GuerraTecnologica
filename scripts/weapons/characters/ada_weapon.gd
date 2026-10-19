@@ -32,6 +32,4 @@ func _on_level_up() -> void:
 
 # Clicando, mira no mouse; sem clicar, atira para onde o personagem anda
 func _aim_direction() -> Vector2:
-	if Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) or _player == null:
-		return (get_global_mouse_position() - global_position).normalized()
-	return _player.facing
+	return global_position.direction_to(get_global_mouse_position())
