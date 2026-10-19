@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c24addjqfgnyn"]
+
+[ext_resource type="Script" uid="uid://68mcmk5lrg14" path="res://scripts/ui/AudioManager.gd" id="1_audio"]
+[ext_resource type="AudioStream" uid="uid://dejje6bw2wel0" path="res://assets/audio/music/TRON_LEGACY.mp3" id="2_r75r5"]
+
+[node name="AudioManager" type="Node" unique_id=114786683]
+process_mode = 3
+script = ExtResource("1_audio")
+
+[node name="BackgroundMusic" type="AudioStreamPlayer" parent="." unique_id=93232834]
+process_mode = 3
+stream = ExtResource("2_r75r5")
+volume_db = -8.0
+bus = &"Music"

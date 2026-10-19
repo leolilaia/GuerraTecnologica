@@ -1,0 +1,193 @@
+[gd_scene format=3 uid="uid://dlltplcefddtq"]
+
+[ext_resource type="Script" uid="uid://d1ugf7l8lc08a" path="res://scripts/ui/SelecaoSave.gd" id="1_aiir7"]
+[ext_resource type="FontFile" uid="uid://b37gar74tlpc3" path="res://fonts/eas-vhs.ttf" id="2_gau6d"]
+[ext_resource type="StyleBox" uid="uid://codrkj5ik3dm" path="res://styles/botao/normal.tres" id="3_nuirb"]
+[ext_resource type="StyleBox" uid="uid://yl0cbfxn4r3i" path="res://styles/botao/pressed.tres" id="4_sanbj"]
+[ext_resource type="StyleBox" uid="uid://b06k424keoe2t" path="res://styles/botao/hover.tres" id="5_kxf7l"]
+[ext_resource type="StyleBox" uid="uid://djhvtvrf62pbo" path="res://styles/botao/focus.tres" id="6_82d3x"]
+
+[sub_resource type="Gradient" id="ShadowGradient"]
+offsets = PackedFloat32Array(0, 0.84375)
+colors = PackedColorArray(0, 0, 0, 0.08, 0, 0, 0, 0.9)
+metadata/_snap_enabled = true
+metadata/_snap_count = 32
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_044cb"]
+gradient = SubResource("ShadowGradient")
+width = 640
+height = 360
+fill = 1
+fill_from = Vector2(0.49565217, 0.5256039)
+fill_to = Vector2(1, 0.53333336)
+
+[node name="SelecaoSave" type="CanvasLayer" unique_id=842463295]
+script = ExtResource("1_aiir7")
+
+[node name="Fundo" type="TextureRect" parent="." unique_id=968344719]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 1
+stretch_mode = 6
+
+[node name="SombraEsquerda" type="TextureRect" parent="." unique_id=485987904]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture2D_044cb")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="Layout" type="VBoxContainer" parent="." unique_id=1508566498]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -242.0
+offset_top = -155.5
+offset_right = 242.0
+offset_bottom = 155.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 4
+theme_override_constants/separation = 9
+
+[node name="Titulo" type="Label" parent="Layout" unique_id=751800211]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0.49411765, 1, 0.4, 0.7137255)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 24
+text = "ESCOLHA UM SAVE"
+horizontal_alignment = 1
+
+[node name="Slots" type="VBoxContainer" parent="Layout" unique_id=760846764]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="HBoxContainer" parent="Layout/Slots" unique_id=1834501157]
+layout_mode = 2
+
+[node name="BotaoSlot" type="Button" parent="Layout/Slots/Slot1" unique_id=719944740]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("5_kxf7l")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "SAVE 1"
+alignment = 0
+
+[node name="BotaoReiniciar" type="Button" parent="Layout/Slots/Slot1" unique_id=388537298]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("4_sanbj")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "REINICIAR"
+icon_alignment = 1
+language = "pt"
+
+[node name="Slot2" type="HBoxContainer" parent="Layout/Slots" unique_id=1712576381]
+layout_mode = 2
+
+[node name="BotaoSlot" type="Button" parent="Layout/Slots/Slot2" unique_id=1090849126]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("5_kxf7l")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "SAVE 1"
+alignment = 0
+
+[node name="BotaoReiniciar" type="Button" parent="Layout/Slots/Slot2" unique_id=1968478301]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("4_sanbj")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "REINICIAR"
+icon_alignment = 1
+language = "pt"
+
+[node name="Slot3" type="HBoxContainer" parent="Layout/Slots" unique_id=358598022]
+layout_mode = 2
+
+[node name="BotaoSlot" type="Button" parent="Layout/Slots/Slot3" unique_id=1131112460]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 18
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("5_kxf7l")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "SAVE 1"
+alignment = 0
+
+[node name="BotaoReiniciar" type="Button" parent="Layout/Slots/Slot3" unique_id=1712227003]
+custom_minimum_size = Vector2(160, 60)
+layout_mode = 2
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("4_sanbj")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "REINICIAR"
+icon_alignment = 1
+language = "pt"
+
+[node name="BotaoVoltar" type="Button" parent="Layout" unique_id=1690310822]
+custom_minimum_size = Vector2(240, 35)
+layout_mode = 2
+size_flags_horizontal = 4
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.92, 0.84, 0.82, 1)
+theme_override_fonts/font = ExtResource("2_gau6d")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = ExtResource("3_nuirb")
+theme_override_styles/pressed = ExtResource("4_sanbj")
+theme_override_styles/hover = ExtResource("5_kxf7l")
+theme_override_styles/focus = ExtResource("6_82d3x")
+text = "VOLTAR"
+
+[node name="Confirmacao" type="ConfirmationDialog" parent="." unique_id=697339680]
+oversampling_override = 1.0
+title = "Por favor confirme..."
+position = Vector2i(0, 36)
+

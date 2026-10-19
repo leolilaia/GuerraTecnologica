@@ -12,12 +12,10 @@
 [ext_resource type="PackedScene" uid="uid://b05p2oa1k7k2e" path="res://scenes/enemies/robo.tscn" id="7_g1wnh"]
 [ext_resource type="PackedScene" uid="uid://bkyi5xtnirpsd" path="res://scenes/enemies/boss_smartphone.tscn" id="10_pi41u"]
 [ext_resource type="PackedScene" path="res://scenes/ui/level_up_screen.tscn" id="11_levelup"]
-[ext_resource type="PackedScene" uid="uid://c5qus4qvt6g04" path="res://scenes/enemies/boss_laptop.tscn" id="13_mmj1u"]
-[ext_resource type="PackedScene" uid="uid://dpok7hnxrw4hw" path="res://scenes/enemies/boss_desktop.tscn" id="14_6se3a"]
-[ext_resource type="PackedScene" uid="uid://cxahi4a8umc46" path="res://scenes/enemies/aspirador.tscn" id="15_kie3e"]
-[ext_resource type="PackedScene" uid="uid://b8123452m371c" path="res://scenes/enemies/geladeira.tscn" id="16_6se3a"]
+[ext_resource type="PackedScene" uid="uid://b447uqffvh8fa" path="res://scenes/ui/PauseMenu.tscn" id="12_pause"]
 
 [node name="MainArena" type="Node2D" unique_id=2030471012]
+metadata/layout_size = Vector2i(1920, 900)
 
 [node name="WorldGenerator" parent="." unique_id=764464101 instance=ExtResource("1_ktrib")]
 
@@ -31,15 +29,13 @@ wave_manager = NodePath("../WaveManager")
 
 [node name="LevelUpScreen" parent="." unique_id=64986352 instance=ExtResource("11_levelup")]
 
+[node name="PauseMenu" parent="." unique_id=1720448113 instance=ExtResource("12_pause")]
+
 [node name="WaveManager" type="Node2D" parent="." unique_id=2049395163]
 script = ExtResource("4_i1fls")
 enemy_scenes = Dictionary[String, PackedScene]({
-"aspirador": ExtResource("15_kie3e"),
-"boss_desktop": ExtResource("14_6se3a"),
-"boss_laptop": ExtResource("13_mmj1u"),
 "boss_smartphone": ExtResource("10_pi41u"),
 "celular": ExtResource("3_igey7"),
-"geladeira": ExtResource("16_6se3a"),
 "microondas": ExtResource("6_vy0at"),
 "robo": ExtResource("7_g1wnh"),
 "smartwatch": ExtResource("6_hquk5")

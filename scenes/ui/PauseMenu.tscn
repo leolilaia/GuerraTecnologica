@@ -1,0 +1,162 @@
+[gd_scene format=3 uid="uid://b447uqffvh8fa"]
+
+[ext_resource type="Script" uid="uid://cn8mn0ptoicn5" path="res://scripts/ui/PauseMenu.gd" id="1_pause"]
+[ext_resource type="Script" path="res://scripts/ui/ui_scaler.gd" id="3_scaler"]
+[ext_resource type="FontFile" uid="uid://b37gar74tlpc3" path="res://fonts/eas-vhs.ttf" id="2_font"]
+
+[sub_resource type="StyleBoxFlat" id="ButtonNormal"]
+bg_color = Color(0.07, 0.02, 0.025, 0.95)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.36, 0.04, 0.06, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="ButtonHover"]
+bg_color = Color(0.34, 0.025, 0.045, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.86, 0.12, 0.17, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[sub_resource type="StyleBoxFlat" id="Panel"]
+content_margin_left = 20.0
+content_margin_top = 18.0
+content_margin_right = 20.0
+content_margin_bottom = 18.0
+bg_color = Color(0.04, 0.015, 0.025, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.57, 0.08, 0.12, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="PauseMenu" type="CanvasLayer" unique_id=2145177968]
+process_mode = 3
+script = ExtResource("1_pause")
+
+[node name="Scaler" type="Control" parent="." unique_id=1902231507]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("3_scaler")
+
+[node name="BotaoPausar" type="Button" parent="Scaler" unique_id=1471820025]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -93.0
+offset_top = -36.0
+offset_right = -5.0
+offset_bottom = -6.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.86, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 15
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonHover")
+text = "PAUSA"
+
+[node name="Overlay" type="ColorRect" parent="Scaler" unique_id=1316305379]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+color = Color(0, 0, 0, 0.72)
+
+[node name="Centro" type="CenterContainer" parent="Scaler/Overlay" unique_id=434914189]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Painel" type="PanelContainer" parent="Scaler/Overlay/Centro" unique_id=1348481173]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("Panel")
+
+[node name="Conteudo" type="VBoxContainer" parent="Scaler/Overlay/Centro/Painel" unique_id=149467687]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Titulo" type="Label" parent="Scaler/Overlay/Centro/Painel/Conteudo" unique_id=1757514723]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.9, 0.88, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 27
+text = "PAUSADO"
+horizontal_alignment = 1
+
+[node name="Aviso" type="Label" parent="Scaler/Overlay/Centro/Painel/Conteudo" unique_id=1199341511]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.58, 0.62, 1)
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 10
+text = "A MUSICA TAMBEM FOI PAUSADA"
+horizontal_alignment = 1
+
+[node name="Botoes" type="VBoxContainer" parent="Scaler/Overlay/Centro/Painel/Conteudo" unique_id=517690646]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="BotaoContinuar" type="Button" parent="Scaler/Overlay/Centro/Painel/Conteudo/Botoes" unique_id=1185967490]
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonHover")
+text = "CONTINUAR"
+
+[node name="BotaoConfiguracoes" type="Button" parent="Scaler/Overlay/Centro/Painel/Conteudo/Botoes" unique_id=237171833]
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonHover")
+text = "CONFIGURAÇÂO"
+
+[node name="BotaoTutorial" type="Button" parent="Scaler/Overlay/Centro/Painel/Conteudo/Botoes" unique_id=1233995491]
+visible = false
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 16
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonHover")
+text = "Tutorial"
+
+[node name="BotaoMenuPrincipal" type="Button" parent="Scaler/Overlay/Centro/Painel/Conteudo/Botoes" unique_id=1761575517]
+custom_minimum_size = Vector2(225, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_font")
+theme_override_font_sizes/font_size = 14
+theme_override_styles/normal = SubResource("ButtonNormal")
+theme_override_styles/hover = SubResource("ButtonHover")
+text = "MENU PRINCIPAL"
+
+[connection signal="pressed" from="Scaler/BotaoPausar" to="." method="_on_botao_pausar_pressed"]
+[connection signal="pressed" from="Scaler/Overlay/Centro/Painel/Conteudo/Botoes/BotaoContinuar" to="." method="_on_botao_continuar_pressed"]
+[connection signal="pressed" from="Scaler/Overlay/Centro/Painel/Conteudo/Botoes/BotaoConfiguracoes" to="." method="_on_botao_configuracoes_pressed"]
+[connection signal="pressed" from="Scaler/Overlay/Centro/Painel/Conteudo/Botoes/BotaoTutorial" to="." method="_on_botao_tutorial_pressed"]
+[connection signal="pressed" from="Scaler/Overlay/Centro/Painel/Conteudo/Botoes/BotaoMenuPrincipal" to="." method="_on_botao_menu_principal_pressed"]

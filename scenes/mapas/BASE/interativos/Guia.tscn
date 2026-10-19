@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d4j6lryt273b6"]
+
+[ext_resource type="Script" uid="uid://ct6yr1jokluxo" path="res://scripts/interativos/Guia.gd" id="1_8nmvr"]
+[ext_resource type="Texture2D" uid="uid://dhi3y1a7p1l6c" path="res://assets/sprites/interativos/tv_tubo_guia.png" id="2_5lhr6"]
+[ext_resource type="Texture2D" uid="uid://fl3pkxuxs6r7" path="res://assets/sprites/textos/botao-interacao.png" id="2_ek1yh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mdsr1"]
+
+[node name="Area2D" type="Area2D" unique_id=965257367]
+collision_layer = 16
+script = ExtResource("1_8nmvr")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=731538234]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5lhr6")
+
+[node name="SimboloE" type="Sprite2D" parent="." unique_id=868849727]
+visible = false
+position = Vector2(0, -36)
+scale = Vector2(0.375, 0.37499994)
+texture = ExtResource("2_ek1yh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1296005499]
+shape = SubResource("RectangleShape2D_mdsr1")

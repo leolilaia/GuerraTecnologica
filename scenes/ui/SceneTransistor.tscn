@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://dhfcfwtahe86u"]
+
+[ext_resource type="Script" uid="uid://bkfrrv88o01cj" path="res://scripts/ui/SceneTransistor.gd" id="1_2tpcx"]
+
+[sub_resource type="Animation" id="Animation_0yy2b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2tpcx"]
+resource_name = "change_scene"
+length = 1.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.9, 1.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1), Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"change_scene"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0yy2b"]
+_data = {
+&"RESET": SubResource("Animation_0yy2b"),
+&"change_scene": SubResource("Animation_2tpcx")
+}
+
+[node name="SceneTransistor" type="CanvasLayer" unique_id=337860267]
+layer = 2
+script = ExtResource("1_2tpcx")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2033107501]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2013394180]
+libraries/ = SubResource("AnimationLibrary_0yy2b")

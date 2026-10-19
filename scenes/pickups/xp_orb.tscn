@@ -7,7 +7,7 @@
 radius = 3.0
 
 [node name="XpOrb" type="Area2D"]
-collision_layer = 4
+collision_layer = 32
 script = ExtResource("1_orb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -13,6 +13,7 @@ resource_local_to_scene = true
 radius = 40.0
 
 [node name="Player" type="CharacterBody2D" unique_id=406858962]
+collision_mask = 4
 script = ExtResource("1_qm0ti")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1927685501]
@@ -27,7 +28,7 @@ script = ExtResource("3_gmlin")
 
 [node name="PickupZone" type="Area2D" parent="." unique_id=1248996052]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 32
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PickupZone" unique_id=1140726604]

@@ -7,9 +7,13 @@ signal weapon_added(weapon: Weapon)
 signal experience_changed(xp: float, xp_to_next: float)
 signal leveled_up(level: int)
 
+const GAME_OVER_SCENE := "res://scenes/ui/GameOver.tscn"
+
 @export var speed: float = 200.0
 @export var max_hp: float = 100.0
 @export var character: CharacterData
+## Na Base o personagem anda sem a arma inicial
+@export var armed: bool = true
 ## XP para sair do nível 1; cada nível seguinte pede xp_growth vezes mais
 @export var xp_base: float = 5.0
 @export var xp_growth: float = 1.25
@@ -56,13 +60,14 @@ func _on_pickup_zone_area_entered(area: Area2D) -> void:
 func _apply_character(data: CharacterData) -> void:
 	if data.sprite:
 		$Sprite2D.texture = data.sprite
-	if data.starting_weapon:
+	if data.starting_weapon and armed:
 		add_weapon(data.starting_weapon)
 
 func add_weapon(scene: PackedScene) -> Weapon:
 	var weapon := scene.instantiate() as Weapon
 	$Weapons.add_child(weapon)
 	weapon_added.emit(weapon)
+	SavedData.registrar_arma_usada(scene.resource_path.get_file().get_basename())
 	return weapon
 
 func get_weapons() -> Array[Weapon]:
@@ -89,14 +94,16 @@ func increase_max_hp(amount: float) -> void:
 	health_changed.emit(hp, max_hp)
 
 func take_damage(amount: float) -> void:
-	if invulnerable:
+	# Morto, continua levando golpes durante o fade da transição
+	if invulnerable or hp <= 0:
 		return
 	hp -= amount
 	health_changed.emit(hp, max_hp)
 
 	if hp <= 0:
 		died.emit()
-		get_tree().reload_current_scene()
+		SavedData.finalizar_run()
+		SceneTransistor.start_transition_to(GAME_OVER_SCENE)
 		return
 
 	invulnerable = true
