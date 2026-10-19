@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://dpok7hnxrw4hw"]
+
+[ext_resource type="PackedScene" uid="uid://bkyi5xtnirpsd" path="res://scenes/enemies/boss_smartphone.tscn" id="1_a8upw"]
+[ext_resource type="Texture2D" uid="uid://bre11b7p01dfu" path="res://assets/sprites/Inimigos/Genericos/Smartwatch.png" id="2_842b5"]
+[ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genericos/Samsung.png" id="3_qce12"]
+[ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="4_li68o"]
+[ext_resource type="Texture2D" uid="uid://jt2f0a2gb0wc" path="res://assets/sprites/Inimigos/Genericos/Fone.png" id="5_1235y"]
+[ext_resource type="Texture2D" uid="uid://l2kqufi14pk7" path="res://assets/sprites/Inimigos/Genericos/AspiradorRobo.png" id="6_7iixo"]
+[ext_resource type="Texture2D" uid="uid://cgy1ycv6cyjvo" path="res://assets/sprites/Inimigos/Genericos/Robo.png" id="7_wc1nm"]
+[ext_resource type="Texture2D" uid="uid://y0r5ya61gt6x" path="res://assets/sprites/Inimigos/Bosses/Desktop.png" id="8_1o011"]
+[ext_resource type="Texture2D" uid="uid://c736fbsleuc0n" path="res://assets/sprites/Inimigos/Genericos/Geladeira.png" id="8_qce12"]
+[ext_resource type="Texture2D" uid="uid://cvh8c6uhx6rb7" path="res://assets/sprites/Inimigos/Genericos/Fone_Projetil.png" id="9_li68o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s1jy4"]
+size = Vector2(132, 150)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfbv7"]
+size = Vector2(138, 150)
+
+[node name="boss_desktop" unique_id=410658759 instance=ExtResource("1_a8upw")]
+attack_flags = 63
+throwables = Array[Texture2D]([ExtResource("2_842b5"), ExtResource("3_qce12"), ExtResource("4_li68o"), ExtResource("5_1235y"), ExtResource("6_7iixo"), ExtResource("7_wc1nm"), ExtResource("8_qce12"), ExtResource("9_li68o")])
+projectile_damage = 12.0
+attack_interval = 3.0
+attack_interval_phase2 = 2.0
+move_mode = 2
+hp = 3500.0
+damage = 15.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(3.9999998, 82)
+scale = Vector2(0.5722656, 0.6191406)
+texture = ExtResource("8_1o011")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
+position = Vector2(2, 79)
+shape = SubResource("RectangleShape2D_s1jy4")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(2, 79)
+shape = SubResource("RectangleShape2D_vfbv7")

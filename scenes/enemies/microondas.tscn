@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://cs8krvafcngvt"]
 
 [ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="1_1wfr2"]
+[ext_resource type="Script" uid="uid://cre1g4x6hqlf3" path="res://scripts/enemies/fone.gd" id="2_6ykhx"]
 [ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="2_qihab"]
+[ext_resource type="PackedScene" uid="uid://bla07x4gumtjk" path="res://scenes/enemies/EnemyProjectile.tscn" id="3_qqv2b"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vy0at"]
 size = Vector2(27, 16.5)
@@ -10,6 +12,11 @@ size = Vector2(27, 16.5)
 size = Vector2(26.5, 12.53125)
 
 [node name="Microondas" unique_id=410658759 instance=ExtResource("1_1wfr2")]
+script = ExtResource("2_6ykhx")
+projectile_scene = ExtResource("3_qqv2b")
+projectile_tex = null
+stop_distance = 220.0
+shoot_cooldown = 2.0
 speed = 70.0
 hp = 45.0
 damage = 15.0

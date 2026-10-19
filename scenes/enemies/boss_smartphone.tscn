@@ -3,48 +3,54 @@
 [ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="1_0j0bj"]
 [ext_resource type="Script" uid="uid://cao8543nh8g4b" path="res://scripts/enemies/boss_smartphone.gd" id="2_3snqj"]
 [ext_resource type="PackedScene" uid="uid://bla07x4gumtjk" path="res://scenes/enemies/EnemyProjectile.tscn" id="3_1fahf"]
-[ext_resource type="Texture2D" uid="uid://bf27ef8hekb1k" path="res://assets/sprites/Inimigos/Bosses/Smartphone.png" id="4_aq81a"]
 [ext_resource type="Texture2D" uid="uid://bre11b7p01dfu" path="res://assets/sprites/Inimigos/Genericos/Smartwatch.png" id="4_c8xt0"]
 [ext_resource type="PackedScene" uid="uid://dcjhpvxfi0yvl" path="res://scenes/ui/BossHealthBar.tscn" id="5_3snqj"]
 [ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genericos/Samsung.png" id="5_vfp2t"]
 [ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="6_8fl6b"]
+[ext_resource type="Texture2D" uid="uid://n02jp8dku2rb" path="res://assets/sprites/Inimigos/BOSS.png" id="7_c8xt0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_c8xt0"]
-radius = 39.0
-height = 128.0
+radius = 28.0
+height = 100.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_vfp2t"]
-radius = 34.0
-height = 122.0
+radius = 26.0
+height = 98.0
 
 [node name="boss_smartphone" unique_id=410658759 instance=ExtResource("1_0j0bj")]
 script = ExtResource("2_3snqj")
-attack_pool = Array[int]([0, 1, 2, 3, 4, 5])
+attack_flags = 15
+proj_speed = 240.0
 projectile_scene = ExtResource("3_1fahf")
-throwables = Array[Texture2D]([ExtResource("4_c8xt0"), ExtResource("5_vfp2t"), ExtResource("6_8fl6b")])
-projectile_damage = 8.0
-top_ratio = 0.75
-sway_speed = 0.9
-attack_interval = 2.4
-attack_interval_phase2 = 1.7
+throwables = [ExtResource("4_c8xt0"), ExtResource("5_vfp2t"), ExtResource("6_8fl6b")]
 big_throwables = Array[Texture2D]([])
 big_size = 1.8
+projectile_damage = 8.0
+top_ratio = 0.75
+attack_interval = 2.4
+attack_interval_phase2 = 1.7349999999999999
+move_mode = 0
+sway_speed = 0.9
+sway_range = 0.5
+chase_speed = 90.0
+phase2_speed_mult = 1.4
+auto_center = true
 speed = 60.0
-hp = 10.0
-damage = 15.0
+hp = 1500.0
+damage = 10.0
 xp_value = 50.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=555424325]
-position = Vector2(70, 69)
-scale = Vector2(0.453125, 0.48437503)
-texture = ExtResource("4_aq81a")
+position = Vector2(5, 46)
+scale = Vector2(1.3125001, 1.453125)
+texture = ExtResource("7_c8xt0")
 
 [node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
-position = Vector2(61, 68)
+position = Vector2(-3, 45)
 shape = SubResource("CapsuleShape2D_c8xt0")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
-position = Vector2(61, 69)
+position = Vector2(-5, 47)
 shape = SubResource("CapsuleShape2D_vfp2t")
 
 [node name="BossHealthBar" parent="." index="3" unique_id=933261140 instance=ExtResource("5_3snqj")]

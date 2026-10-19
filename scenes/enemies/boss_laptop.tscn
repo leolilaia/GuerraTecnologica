@@ -2,24 +2,43 @@
 
 [ext_resource type="PackedScene" uid="uid://bkyi5xtnirpsd" path="res://scenes/enemies/boss_smartphone.tscn" id="1_omapj"]
 [ext_resource type="Texture2D" uid="uid://cmf11kuj6kkw0" path="res://assets/sprites/Inimigos/Bosses/Laptop.png" id="2_fp5ts"]
+[ext_resource type="Texture2D" uid="uid://bre11b7p01dfu" path="res://assets/sprites/Inimigos/Genericos/Smartwatch.png" id="2_ubkdy"]
+[ext_resource type="Texture2D" uid="uid://363xqhquj21m" path="res://assets/sprites/Inimigos/Genericos/Samsung.png" id="3_g61ui"]
+[ext_resource type="Texture2D" uid="uid://id5yiyaypgjq" path="res://assets/sprites/Inimigos/Genericos/Microondas.png" id="4_x5jfp"]
+[ext_resource type="Texture2D" uid="uid://l2kqufi14pk7" path="res://assets/sprites/Inimigos/Genericos/AspiradorRobo.png" id="5_5se8e"]
+[ext_resource type="Texture2D" uid="uid://cvh8c6uhx6rb7" path="res://assets/sprites/Inimigos/Genericos/Fone_Projetil.png" id="6_ubkdy"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_olr7h"]
+load_path = "res://.godot/imported/Fone.png-0102cff43b4aea9c26b7380e4d681c5f.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0ufpx"]
-size = Vector2(155, 125)
+size = Vector2(130, 100)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pi41u"]
-size = Vector2(154, 125)
+size = Vector2(127, 99.5)
 
 [node name="boss_laptop" unique_id=410658759 instance=ExtResource("1_omapj")]
+attack_flags = 47
+throwables = Array[Texture2D]([ExtResource("2_ubkdy"), ExtResource("3_g61ui"), ExtResource("4_x5jfp"), ExtResource("5_5se8e"), SubResource("CompressedTexture2D_olr7h"), ExtResource("6_ubkdy")])
+attack_interval = 2.0
+attack_interval_phase2 = 1.4
+move_mode = 1
+chase_speed = 1.3
+hp = 2500.0
+damage = 12.0
 
 [node name="Sprite2D" parent="." index="0" unique_id=555424325]
-position = Vector2(98, 80.50001)
-scale = Vector2(0.671875, 0.5742188)
+position = Vector2(0, 59)
+scale = Vector2(0.53515625, 0.4609375)
 texture = ExtResource("2_fp5ts")
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1228511987) index="0" unique_id=2107185566]
-position = Vector2(98.5, 74.5)
+[node name="Hitbox" parent="." index="1" unique_id=1228511987]
+position = Vector2(-2, -6)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2107185566]
+position = Vector2(1, 54)
 shape = SubResource("RectangleShape2D_0ufpx")
 
 [node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
-position = Vector2(99, 75)
+position = Vector2(0, 53)
 shape = SubResource("RectangleShape2D_pi41u")

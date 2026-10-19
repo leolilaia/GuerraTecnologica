@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b8123452m371c"]
+
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="1_gsiuv"]
+[ext_resource type="Texture2D" uid="uid://c736fbsleuc0n" path="res://assets/sprites/Inimigos/Genericos/Geladeira.png" id="2_nsnuk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46bvh"]
+size = Vector2(164, 256)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxj6l"]
+size = Vector2(169, 242)
+
+[node name="Geladeira" unique_id=410658759 instance=ExtResource("1_gsiuv")]
+speed = 30.0
+hp = 400.0
+damage = 15.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(154.0625, 133.9375)
+scale = Vector2(1.2573242, 1.1098633)
+texture = ExtResource("2_nsnuk")
+
+[node name="Hitbox" parent="." index="1" unique_id=1228511987]
+position = Vector2(377, 118)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2107185566]
+position = Vector2(-252, 18)
+shape = SubResource("RectangleShape2D_46bvh")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(119.5, 135)
+shape = SubResource("RectangleShape2D_yxj6l")
