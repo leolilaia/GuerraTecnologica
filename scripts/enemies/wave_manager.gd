@@ -15,20 +15,37 @@ signal game_won
 @export var enemy_scenes: Dictionary[String, PackedScene] = {}
 @export var default_enemy: PackedScene
 
-# Um bloco por fase. Para cortar uma fase, apague a linha.
 var levels: Array[Dictionary] = [
-	{"waves": 5, "boss": "boss_smartphone", "enemies": ["smartwatch", "celular"], "interval": 0.8, "hp_mult": 1.0},
-	{"waves": 5, "boss": "boss_laptop", "enemies": ["celular", "robo", "microondas"], "interval": 0.65, "hp_mult": 1.4},
-	{"waves": 5, "boss": "boss_desktop", "enemies": ["robo", "microondas", "celular", "smartwatch"], "interval": 0.5, "hp_mult": 1.8},
+	{
+		"waves": 5,
+		"boss": "boss_smartphone",
+		"enemies": ["celular", "smartwatch", "aspirador"],
+		"interval": 0.8,
+		"hp_mult": 1.0
+	},
+	{
+		"waves": 5,
+		"boss": "boss_laptop",
+		"enemies": ["celular", "smartwatch", "aspirador", "fone"],
+		"interval": 0.65,
+		"hp_mult": 1.3
+	},
+	{
+		"waves": 5,
+		"boss": "boss_desktop",
+		"enemies": ["celular", "smartwatch", "aspirador", "fone", "robo", "geladeira"],
+		"interval": 0.55,
+		"hp_mult": 1.6
+	},
 ]
 
 var level: int = 0
 var wave: int = 0
 var wave_timer: float = 0.0
 var spawn_timer: float = 0.0
-var busy: bool = false          # true entre o fim de uma fase e o começo da outra
+var busy: bool = false
+var smoothing_was_on: bool = false
 
-# Estado do duelo com o boss
 var in_boss_fight: bool = false
 var fight_center: Vector2
 var fight_half_size: Vector2
@@ -36,7 +53,6 @@ var fight_camera: Camera2D
 var camera_offset: Vector2
 
 func _ready() -> void:
-	# Espera a arena e o PlayerSpawner terminarem de montar a cena
 	await get_tree().process_frame
 	while get_tree().get_first_node_in_group("player") == null:
 		await get_tree().process_frame
@@ -66,7 +82,6 @@ func _physics_process(_delta: float) -> void:
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
-	# Prende o jogador dentro da tela durante o duelo
 	player.global_position = Vector2(
 		clampf(player.global_position.x, fight_center.x - fight_half_size.x, fight_center.x + fight_half_size.x),
 		clampf(player.global_position.y, fight_center.y - fight_half_size.y, fight_center.y + fight_half_size.y))
@@ -100,12 +115,14 @@ func _spawn(enemy_name: String, player: Node2D, hp_mult: float = 1.0) -> Node2D:
 		enemy.hp *= hp_mult
 	if "xp_value" in enemy:
 		enemy.xp_value *= hp_mult
-	enemy.died.connect(_on_enemy_died.bind(enemy))
+	if enemy.has_signal("died"):
+		enemy.died.connect(_on_enemy_died.bind(enemy))
 	get_parent().add_child(enemy)
 	enemy.global_position = player.global_position + Vector2.from_angle(randf() * TAU) * spawn_radius
 	return enemy
 
 func _start_boss_fight(boss_name: String) -> void:
+	print("Iniciando boss: ", boss_name)
 	var player := get_tree().get_first_node_in_group("player") as Node2D
 	if player == null:
 		return
@@ -122,23 +139,26 @@ func _start_boss_fight(boss_name: String) -> void:
 		return
 
 	# 1. Limpa a tela
-	for e in get_tree().get_nodes_in_group("enemies"):
-		e.queue_free()
+	get_tree().call_group("enemies", "queue_free")
 
 	# 2. Trava a câmera onde o jogador está
 	camera_offset = fight_camera.position
+	smoothing_was_on = fight_camera.position_smoothing_enabled
+	fight_camera.position_smoothing_enabled = false
+	fight_camera.top_level = true
+	fight_camera.global_position = player.global_position
+	fight_camera.force_update_scroll()
 	var view := get_viewport().get_visible_rect().size / fight_camera.zoom
 	fight_half_size = view / 2.0 - Vector2(24, 24)
-	fight_center = player.global_position
-	fight_camera.top_level = true
-	fight_camera.global_position = fight_center
+	fight_center = fight_camera.get_screen_center_position()
 
 	# 3. Cria o boss no topo da tela
 	get_parent().add_child(boss)
 	boss.global_position = fight_center + Vector2(0, -fight_half_size.y * 0.75)
 	boss.begin_fight(fight_center, fight_half_size)
 	boss.defeated.connect(_on_boss_defeated)
-	boss.died.connect(_on_enemy_died.bind(boss))
+	if boss.has_signal("died"):
+		boss.died.connect(_on_enemy_died.bind(boss))
 	in_boss_fight = true
 
 # O nome da cena identifica o inimigo no bestiário; o XP vira os Bytes da partida
@@ -154,6 +174,7 @@ func _on_boss_defeated() -> void:
 	if fight_camera:
 		fight_camera.top_level = false
 		fight_camera.position = camera_offset
+		fight_camera.position_smoothing_enabled = smoothing_was_on
 	boss_defeated.emit(level)
 	_heal_player()
 	for id in Catalogo.characters_unlocked_by(level):
@@ -175,7 +196,6 @@ func _heal_player() -> void:
 	if player.has_signal("health_changed"):
 		player.health_changed.emit(player.hp, player.max_hp)
 
-# Aviso grande no centro da tela, criado por código (não mexe em nenhuma cena)
 func _show_banner(text: String, seconds: float = 2.0) -> void:
 	var layer := CanvasLayer.new()
 	layer.layer = 20

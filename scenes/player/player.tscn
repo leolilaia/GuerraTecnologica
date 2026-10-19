@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b148xflm6jwmu" path="res://scripts/player/player.gd" id="1_qm0ti"]
 [ext_resource type="Texture2D" uid="uid://hmakf0u1pfns" path="res://assets/sprites/Personagens/AlanTuring.png" id="2_fhbv5"]
+[ext_resource type="Script" uid="uid://csak5pskjkblp" path="res://scripts/player/sprite_2d.gd" id="3_gmlin"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tmq5d"]
 radius = 7.0
@@ -23,6 +24,7 @@ shape = SubResource("CapsuleShape2D_tmq5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=541790927]
 texture = ExtResource("2_fhbv5")
+script = ExtResource("3_gmlin")
 
 [node name="PickupZone" type="Area2D" parent="." unique_id=1248996052]
 collision_layer = 0

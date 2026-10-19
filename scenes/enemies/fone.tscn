@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://dm2kkbqmpnjpj"]
+
+[ext_resource type="PackedScene" uid="uid://1640r0stkje4" path="res://scenes/enemies/celular.tscn" id="1_in3mk"]
+[ext_resource type="Script" uid="uid://cre1g4x6hqlf3" path="res://scripts/enemies/fone.gd" id="2_ghtsy"]
+[ext_resource type="PackedScene" uid="uid://bla07x4gumtjk" path="res://scenes/enemies/EnemyProjectile.tscn" id="3_ghtsy"]
+[ext_resource type="Texture2D" uid="uid://jt2f0a2gb0wc" path="res://assets/sprites/Inimigos/Genericos/Fone.png" id="4_6godd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ghtsy"]
+radius = 4.0
+height = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7mtqj"]
+radius = 4.0
+height = 8.0
+
+[node name="Fone" unique_id=410658759 instance=ExtResource("1_in3mk")]
+script = ExtResource("2_ghtsy")
+projectile_scene = ExtResource("3_ghtsy")
+projectile_tex = null
+stop_distance = 220.0
+shoot_cooldown = 2.0
+
+[node name="Sprite2D" parent="." index="0" unique_id=555424325]
+position = Vector2(3.5703125, 2.4921875)
+scale = Vector2(0.2768555, 0.21923828)
+texture = ExtResource("4_6godd")
+
+[node name="Hitbox" parent="." index="1" unique_id=1228511987]
+position = Vector2(0, 1)
+
+[node name="CollisionShape2D" parent="Hitbox" index="0" unique_id=2107185566]
+position = Vector2(3, 1)
+shape = SubResource("CapsuleShape2D_ghtsy")
+
+[node name="CollisionShape2D" parent="." index="2" unique_id=288305320]
+position = Vector2(3, 2)
+shape = SubResource("CapsuleShape2D_7mtqj")
